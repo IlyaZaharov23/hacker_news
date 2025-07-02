@@ -9,3 +9,13 @@ export type StoryType = {
   type: string;
   url: string;
 };
+
+export type CommentType = {
+  by: string;
+  id: number;
+  kids?: number[] | undefined;
+  parent: number;
+  text: string;
+  time: number;
+  type: string;
+};

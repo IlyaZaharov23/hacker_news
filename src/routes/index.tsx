@@ -3,6 +3,7 @@ import { SCREEN_ROUTES } from "./constants";
 
 const NewsList = lazy(() => import("../components/News"));
 const StartPage = lazy(() => import("../components/StartPage"));
+const StoryPage = lazy(() => import("../components/StoryPage"));
 
 const SCREEN_NAMES = {
   START_PAGE: "START_PAGE",
@@ -27,7 +28,7 @@ const routes = [
     name: SCREEN_NAMES.NEWS_ITEMS,
     key: "news_item",
     path: SCREEN_ROUTES.NEWS_ITEM,
-    component: "",
+    component: <StoryPage />,
   },
 ];
 

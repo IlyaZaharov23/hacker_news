@@ -1,3 +1,6 @@
+import { HEADER_HEIGHT } from "../Header/styles";
+import { lightBrown, white } from "../../constants/colors";
+
 export const styles = {
   mainWrapper: {
     display: "flex",
@@ -5,14 +8,19 @@ export const styles = {
     alignItems: "center",
     justifyContent: "center",
   },
-  newsItemWrapper: {
+  contentWrapper: {
     display: "flex",
     flexDirection: "column",
-    gap: 4,
-  },
-  newsInfoWrapper: {
-    display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    width: "100%",
+    marginTop: `${HEADER_HEIGHT}px`,
+    overflowY: "auto",
+    maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+    backgroundColor: lightBrown,
+  },
+  listWrapper: {
+    width: "50vw",
+    backgroundColor: white,
+    padding: "2rem 4rem",
   },
 };
