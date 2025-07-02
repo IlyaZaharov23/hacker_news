@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { StoryType } from "../../types/componentTypes";
+import { StoryType, CommentType } from "../../types/componentTypes";
 
 interface HackerNewsState {
   newStories: StoryType[];
-  story: any;
-  comment: any;
+  story: StoryType | null;
+  storyComments: CommentType[];
 }
 
 const initialState: HackerNewsState = {
   newStories: [],
   story: null,
-  comment: null,
+  storyComments: [],
 };
 
 export const hackerNewsSlice = createSlice({
@@ -20,8 +20,11 @@ export const hackerNewsSlice = createSlice({
     setNewStories: (state, action) => {
       state.newStories = action.payload;
     },
-    setStory: (state, action) => {
+    setActiveStory: (state, action) => {
       state.story = action.payload;
+    },
+    setStoryComments: (state, action) => {
+      state.storyComments = action.payload;
     },
   },
 });

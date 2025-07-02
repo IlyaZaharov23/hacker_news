@@ -5,11 +5,13 @@ import { styles } from "./styles";
 type LoaderTypeProps = {
   fullScreen?: boolean;
   centerInParent?: boolean;
+  size?: number;
 };
 
 export const ProgressLoader: FC<LoaderTypeProps> = ({
   fullScreen = false,
   centerInParent = false,
+  size,
 }) => {
   return (
     <Box
@@ -22,7 +24,7 @@ export const ProgressLoader: FC<LoaderTypeProps> = ({
       }}
     >
       <CircularProgress
-        size={fullScreen ? 40 : centerInParent ? 32 : 20}
+        size={fullScreen ? 40 : centerInParent ? 32 : size}
         sx={
           fullScreen || centerInParent
             ? styles.customLoader

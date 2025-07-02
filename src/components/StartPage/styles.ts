@@ -1,19 +1,33 @@
-import { bluePrimary, white, lightYellow } from "../../constants/colors";
+import {
+  white,
+  orangePrimary,
+  black,
+} from "../../constants/colors";
 
 export const styles = {
   pageWrapper: {
-    backgroundColor: lightYellow,
+    backgroundColor: orangePrimary,
     width: "100vw",
     height: "100vh",
     display: "flex",
-    flexDirection: 'column',
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
   },
   showNewsButton: {
     height: "36px",
-    width: '110px',
-    backgroundColor: bluePrimary,
+    backgroundColor: white,
+    color: black,
+    fontWeight: "600",
+  },
+  imgWrapper: {
+    backgroundColor: black,
+    height: '128px',
+  },
+  title: {
+    fontSize: "2rem",
+    fontWeight: "600",
     color: white,
+    margin: "3rem 0",
   },
 };

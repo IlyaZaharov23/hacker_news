@@ -1,3 +1,10 @@
-export const lightYellow = "#FFF8E7";
 export const bluePrimary = "#3268D9";
+export const borderGray = "#999999";
+export const semiLightGray = "#E0E0E0";
+export const lightGray = "#F7F7F7";
+export const darkGray = "#333333";
+export const hoverGray = "#E6E6E6";
 export const white = "#FFFFFF";
+export const orangePrimary = "#FD974F";
+export const black = "#000000";
+export const lightBrown = "#FEF2E4";
