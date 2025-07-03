@@ -13,6 +13,8 @@ import { DIVIDER_TYPE } from "../../../../constants/dividerTypes";
 import { useAppDispatch } from "../../../../store/hooks";
 import { ProgressLoader } from "../../../ProgressLoader";
 import { NestedComments } from "./components/NestedComments";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 type PropsType = {
   comment: CommentType;
@@ -42,6 +44,7 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
       await Promise.all(idsPromise).then((res) => {
         dispatch(addNestedCommentsById({ id: comment.id, comments: res }));
       });
+      addCommentIdToNestedList(comment.id);
     } catch (error) {
       console.log(error);
     } finally {
@@ -49,14 +52,14 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
     }
   };
 
-  const handleClick = async (ids: number[], commentId: number) => {
-    if (nestedCommentsIds.includes(commentId)) {
-      deleteCommentIdFromNestedList(commentId);
-    } else {
-      await loadNestedComments(ids);
-      addCommentIdToNestedList(commentId);
-    }
-  };
+  //   const handleClick = async (ids: number[], commentId: number) => {
+  //     if (nestedCommentsIds.includes(commentId)) {
+  //       deleteCommentIdFromNestedList(commentId);
+  //     } else {
+  //       await loadNestedComments(ids);
+  //       addCommentIdToNestedList(commentId);
+  //     }
+  //   };
 
   return (
     <Box sx={styles.commentWrapper}>
@@ -77,16 +80,26 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
           ) : (
             <Box sx={styles.nestedCommentsWrapper}>
               {nestedCommentsIds.includes(comment.id) && (
+                <Button
+                  sx={styles.button}
+                  startIcon={<ArrowUpwardIcon />}
+                  onClick={() => deleteCommentIdFromNestedList(comment.id)}
+                >
+                  Hide Nested Comments
+                </Button>
+              )}
+              {nestedCommentsIds.includes(comment.id) && (
                 <NestedComments commentId={comment.id} />
               )}
-              <Button
-                sx={styles.button}
-                onClick={() => handleClick(comment.kids ?? [], comment.id)}
-              >
-                {nestedCommentsIds.includes(comment.id)
-                  ? "Hide nested comments"
-                  : `Show ${comment.kids.length} nested comments`}
-              </Button>
+              {!nestedCommentsIds.includes(comment.id) && (
+                <Button
+                  sx={styles.button}
+                  startIcon={<ArrowDownwardIcon />}
+                  onClick={() => loadNestedComments(comment.kids ?? [])}
+                >
+                  Show {comment.kids.length} nested comments
+                </Button>
+              )}
             </Box>
           )}
         </Box>

@@ -54,6 +54,7 @@ export const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: '40vw'
+    marginLeft: '5rem',
+    marginBottom: '1rem'
   },
 };
