@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Header } from "../Header";
 import { styles } from "./styles";
@@ -20,16 +20,10 @@ import { CustomDivider } from "../CustomDivider";
 import { DIVIDER_TYPE } from "../../constants/dividerTypes";
 
 function StoryPage() {
-  const navigate = useNavigate();
   const params = useParams();
   const activeStory = useAppSelector(activeStoryGet);
   const dispatch = useAppDispatch();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const handleGoBack = () => {
-    dispatch(setActiveStory(null));
-    navigate(-1);
-  };
 
   const handleRedirectToStory = () => {
     window.open(activeStory?.url);
@@ -73,7 +67,7 @@ function StoryPage() {
 
   return (
     <Box sx={styles.commonWrapper}>
-      <Header showBack handleBack={handleGoBack} />
+      <Header showBack />
       {isLoading ? (
         <ProgressLoader fullScreen />
       ) : (

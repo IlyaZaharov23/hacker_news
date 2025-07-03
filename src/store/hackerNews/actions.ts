@@ -3,7 +3,13 @@ import { API_ENDPOINTS } from "../../config/api";
 import { ApiWrapper } from "../../services";
 import { hackerNewsSlice } from "./reducers";
 
-export const { setActiveStory, setNewStories, setStoryComments } = hackerNewsSlice.actions;
+export const {
+  setActiveStory,
+  setNewStories,
+  setStoryComments,
+  addNestedCommentsById,
+  removeNestedComments
+} = hackerNewsSlice.actions;
 
 export const getStoryIds = createAppAsyncThunk(
   "hackerNews/getStoryIds",
@@ -34,7 +40,7 @@ export const getCommentById = createAppAsyncThunk(
   async (id: number) => {
     try {
       const resp = await ApiWrapper.get(API_ENDPOINTS.COMMENT(id));
-      return resp.data
+      return resp.data;
     } catch (error) {
       console.log(error);
     }

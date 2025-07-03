@@ -28,6 +28,7 @@ function News() {
   };
 
   const showAllNews = async () => {
+    if (isLoading) return;
     try {
       setIsLoading(true);
       const ids = await dispatch(getStoryIds()).unwrap();
@@ -47,7 +48,12 @@ function News() {
 
   return (
     <Box sx={styles.mainWrapper}>
-      <Header refreshNews={showAllNews} />
+      <Header
+        refreshNews={showAllNews}
+        isLoading={isLoading}
+        showBack
+        showUpdate
+      />
       <Box sx={styles.contentWrapper}>
         {isLoading ? (
           <ProgressLoader fullScreen />

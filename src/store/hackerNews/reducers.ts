@@ -5,12 +5,16 @@ interface HackerNewsState {
   newStories: StoryType[];
   story: StoryType | null;
   storyComments: CommentType[];
+  nestedStoryComments: {
+    [parentCommentId: number]: CommentType[];
+  };
 }
 
 const initialState: HackerNewsState = {
   newStories: [],
   story: null,
   storyComments: [],
+  nestedStoryComments: {},
 };
 
 export const hackerNewsSlice = createSlice({
@@ -25,6 +29,12 @@ export const hackerNewsSlice = createSlice({
     },
     setStoryComments: (state, action) => {
       state.storyComments = action.payload;
+    },
+    addNestedCommentsById: (state, action) => {
+      state.nestedStoryComments[action.payload.id] = action.payload.comments;
+    },
+    removeNestedComments: (state, action) => {
+      delete state.nestedStoryComments[action.payload.Id];
     },
   },
 });
