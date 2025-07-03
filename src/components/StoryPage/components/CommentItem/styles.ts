@@ -49,4 +49,11 @@ export const styles = {
       backgroundColor: semiLightGray,
     },
   },
+  nestedCommentsWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: '40vw'
+  },
 };

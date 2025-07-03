@@ -1,5 +1,11 @@
 import { HEADER_HEIGHT } from "../Header/styles";
-import { black, lightBrown, white, darkGray } from "./../../constants/colors";
+import {
+  black,
+  lightBrown,
+  white,
+  darkGray,
+  borderGray,
+} from "./../../constants/colors";
 import { boxShadow } from "../../constants/styleProps";
 export const styles = {
   commonWrapper: {
@@ -35,6 +41,9 @@ export const styles = {
     height: "32px",
     color: black,
     cursor: "pointer",
+    "&:hover": {
+      color: borderGray,
+    },
   },
   bottomWrapper: {
     display: "flex",
