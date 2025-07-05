@@ -1,4 +1,4 @@
-import { black, hoverGray, orangePrimary, white } from "constants/colors";
+import { black, hoverGray, orangePrimary, white, hoverBlue } from "constants/colors";
 
 const HEADER_PADDING_X = 24;
 const HEADER_PADDING_Y = 14;
@@ -31,25 +31,23 @@ export const styles = {
     cursor: "pointer",
     color: white,
     "&:hover": {
-      color: hoverGray,
+      color: hoverBlue,
     },
     "&:active": {
       color: black,
     },
-  },
-  buttonText: {
-    fontSize: "1.125rem",
-    fontWeight: "600",
-    color: "inherit",
-    marginLeft: "0.5rem",
   },
   disabledButton: {
     display: "flex",
     alignItems: "center",
     color: hoverGray,
   },
+  rightButtonWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px'
+  },
   icon: {
-    cursor: "pointer",
     color: "inherit",
     width: `${ICON_SIZE}px`,
     height: `${ICON_SIZE}px`,

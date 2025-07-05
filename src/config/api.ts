@@ -10,6 +10,7 @@ export const API_ENDPOINTS = {
   ASK_STORIES: `${API_URL}/askstories.json`,
   SHOW_STORIES: `${API_URL}/showstories.json`,
   JOB_STORIES: `${API_URL}/jobstories.json`,
+  BEST_STORIES: `${API_URL}/beststories.json`,
   ITEM: (id: number) => `${API_URL}/item/${id}.json`,
   ITEM_BY_ID: (id: number) => `${API_URL}/item/${id}.json`,
 };
