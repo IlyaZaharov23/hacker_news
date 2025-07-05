@@ -16,14 +16,14 @@ export const Comments: FC<CommentsPropsType> = ({ storyId, isLoading }) => {
   const comments = useAppSelector((state) =>
     storyId ? storyCommentsGetById(state, storyId) : []
   );
-  
+
   return (
     <Box sx={styles.commentsWrapper}>
       <Typography sx={styles.commentsTitle}>Comments:</Typography>
       <Box sx={styles.listWrapper}>
         {isLoading ? (
           <CommentsSkeleton />
-        ) : comments?.length === 0 ? (
+        ) : !comments?.length ? (
           <CommentsPlaceholder />
         ) : (
           comments?.map((comment) => (

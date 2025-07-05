@@ -23,24 +23,24 @@ export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const getStoryComments = async (ids: number[] | undefined) => {
-    try {
-      const idsPromices = ids?.map((id) =>
-        dispatch(getCommentById(id)).unwrap()
-      );
-      await Promise.all(idsPromices || []).then((res) => {
-        dispatch(addStoryComments({ id: item.id, comments: res }));
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getStoryComments = async (ids: number[] | undefined) => {
+  //   try {
+  //     const idsPromices = ids?.map((id) =>
+  //       dispatch(getCommentById(id)).unwrap()
+  //     );
+  //     await Promise.all(idsPromices || []).then((res) => {
+  //       dispatch(addStoryComments({ id: item.id, comments: res }));
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const goToStory = async (storyId: number) => {
     try {
       navigate(UrlUtil.generatePathWithId(SCREEN_ROUTES.NEWS_ITEM, storyId));
       dispatch(addActiveStory({ id: item.id, story: item }));
-      getStoryComments(item.kids);
+      // getStoryComments(item.kids);
     } catch (error) {
       console.log(error);
     }

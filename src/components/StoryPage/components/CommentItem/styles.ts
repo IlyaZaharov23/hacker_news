@@ -1,6 +1,4 @@
 import {
-  borderGray,
-  lightGray,
   darkGray,
   semiLightGray,
   black,
@@ -11,10 +9,7 @@ const COMMENT_PADDING = 16;
 export const styles = {
   commentWrapper: {
     padding: `${COMMENT_PADDING}px`,
-    border: `1px solid ${borderGray}`,
-    borderRadius: "6px",
     marginBottom: "1rem",
-    backgroundColor: lightGray,
     // 16px - scroll width + some paddings_x
     width: `calc(100% - ${COMMENT_PADDING * 2 + 16}px)`,
   },
