@@ -1,5 +1,5 @@
-import { darkGray } from "../../../../constants/colors";
-import { HEADER_HEIGHT } from "../../../Header/styles";
+import { darkGray } from "constants/colors";
+import { HEADER_HEIGHT } from "components/Header/styles";
 
 export const styles = {
   placeholderWrapper: {

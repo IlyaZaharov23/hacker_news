@@ -1,15 +1,15 @@
-import { Box, Typography } from "@mui/material";
 import { FC } from "react";
-import { StoryType } from "../../../../types/componentTypes";
-import { DateUtil } from "../../../../utiles/DateUtil";
-import { styles } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { UrlUtil } from "../../../../utiles/UrlUtil";
-import { SCREEN_ROUTES } from "../../../../routes/constants";
-import { addActiveStory } from "../../../../store/hackerNews/actions";
-import { useAppDispatch } from "../../../../store/hooks";
-import { CustomDivider } from "../../../CustomDivider";
-import { DIVIDER_TYPE } from "../../../../constants/dividerTypes";
+import { Box, Typography } from "@mui/material";
+import { CustomDivider } from "components/CustomDivider";
+import { SCREEN_ROUTES } from "routes/constants";
+import { addActiveStory } from "store/hackerNews/actions";
+import { useAppDispatch } from "store/hooks";
+import { StoryType } from "types/componentTypes";
+import { DateUtil } from "utiles/DateUtil";
+import { UrlUtil } from "utiles/UrlUtil";
+import { DIVIDER_TYPE } from "constants/dividerTypes";
+import { styles } from "./styles";
 
 type NewsItemPropsType = {
   item: StoryType;

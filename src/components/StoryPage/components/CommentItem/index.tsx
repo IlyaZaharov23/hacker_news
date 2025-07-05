@@ -1,20 +1,22 @@
+import { FC, useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
-import { styles } from "./styles";
-import { CommentType } from "../../../../types/componentTypes";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+
+import { ProgressLoader } from "components/ProgressLoader";
+import { CustomDivider } from "components/CustomDivider";
 import {
   getCommentById,
   addNestedCommentsById,
   removeNestedComments,
-} from "../../../../store/hackerNews/actions";
-import { FC, useState } from "react";
-import { CustomDivider } from "../../../CustomDivider";
-import { DateUtil } from "../../../../utiles/DateUtil";
-import { DIVIDER_TYPE } from "../../../../constants/dividerTypes";
-import { useAppDispatch } from "../../../../store/hooks";
-import { ProgressLoader } from "../../../ProgressLoader";
+} from "store/hackerNews/actions";
+import { useAppDispatch } from "store/hooks";
+import { CommentType } from "types/componentTypes";
+import { DateUtil } from "utiles/DateUtil";
+import { DIVIDER_TYPE } from "constants/dividerTypes";
+
 import { NestedComments } from "./components/NestedComments";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { styles } from "./styles";
 
 type PropsType = {
   comment: CommentType;

@@ -1,4 +1,4 @@
-import { black, hoverGray, orangePrimary, white, borderGray } from "../../constants/colors";
+import { black, hoverGray, orangePrimary, white } from "constants/colors";
 
 const HEADER_PADDING_X = 24;
 const HEADER_PADDING_Y = 14;
@@ -18,7 +18,6 @@ export const styles = {
     top: 0,
     left: 0,
     zIndex: 1000,
-    borderBottom: `2px solid ${borderGray}`
   },
   title: {
     fontSize: "1.25rem",

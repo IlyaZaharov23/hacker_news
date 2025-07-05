@@ -1,20 +1,20 @@
-import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Header } from "../Header";
-import { styles } from "./styles";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { activeStoryGetById } from "../../store/hackerNews/selectors";
+import { Box } from "@mui/material";
+import { useAppSelector, useAppDispatch } from "store/hooks";
+import { activeStoryGetById } from "store/hackerNews/selectors";
 import {
   getStoryById,
   getCommentById,
   addStoryComments,
   addActiveStory,
   removeActiveStory,
-} from "../../store/hackerNews/actions";
-import { useEffect, useState } from "react";
-import { UrlUtil } from "../../utiles/UrlUtil";
+} from "store/hackerNews/actions";
+import { UrlUtil } from "utiles/UrlUtil";
 import { Comments } from "./components/Comments";
 import { StoryHeader } from "./components/StoryHeader";
+import { Header } from "../Header";
+import { styles } from "./styles";
 
 function StoryPage() {
   const params = useParams();

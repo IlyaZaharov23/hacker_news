@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import emptyNewsList from "../../../../assets/emptyNewsList.svg";
+import emptyNewsList from "assets/emptyNewsList.svg";
 import { styles } from "./styles";
 
 export const NewsPlaceholder = () => {

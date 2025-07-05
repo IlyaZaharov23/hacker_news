@@ -1,18 +1,19 @@
-import { Box } from "@mui/material";
-import { useAppSelector } from "../../store/hooks";
-import { newStoriesGet } from "../../store/hackerNews/selectors";
-import { styles } from "./styles";
-import { Header } from "../Header";
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "../../store/hooks";
+import { Box } from "@mui/material";
+
+import { useAppSelector, useAppDispatch } from "store/hooks";
 import {
   getStoryById,
   setNewStories,
   getStoryIds,
-} from "../../store/hackerNews/actions";
+} from "store/hackerNews/actions";
+import { newStoriesGet } from "store/hackerNews/selectors";
+
+import { Header } from "../Header";
 import { NewsItem } from "./components/NewsItem";
 import { NewsSkeleton } from "./components/NewsSkeleton";
 import { NewsPlaceholder } from "./components/NewsPlaceholder";
+import { styles } from "./styles";
 
 function News() {
   const news = useAppSelector(newStoriesGet);

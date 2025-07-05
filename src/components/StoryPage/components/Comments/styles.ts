@@ -1,6 +1,6 @@
-import { black, white } from "../../../../constants/colors";
-import { boxShadow } from "../../../../constants/styleProps";
-import { HEADER_HEIGHT } from "../../../Header/styles";
+import { black, white } from "constants/colors";
+import { boxShadow } from "constants/styleProps";
+import { HEADER_HEIGHT } from "components/Header/styles";
 import { STORY_HEADER_HEIGTH } from "../../styles";
 
 const COMMENT_TITLE_MARGIN_TOP = 8;

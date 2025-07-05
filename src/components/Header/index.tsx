@@ -1,12 +1,12 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import mainLogo from "../../assets/mainLogo.svg";
+import { useAppDispatch } from "store/hooks";
+import { setActiveStory } from "store/hackerNews/actions";
+import mainLogo from "assets/mainLogo.svg";
 import { styles } from "./styles";
-import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../store/hooks";
-import { setActiveStory } from "../../store/hackerNews/actions";
 
 type HeaderPropsType = {
   showBack: boolean;

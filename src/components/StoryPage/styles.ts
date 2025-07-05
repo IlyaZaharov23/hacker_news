@@ -1,12 +1,12 @@
-import { HEADER_HEIGHT } from "../Header/styles";
 import {
   black,
   lightBrown,
   white,
   darkGray,
   borderGray,
-} from "./../../constants/colors";
-import { boxShadow } from "../../constants/styleProps";
+} from "constants/colors";
+import { boxShadow } from "constants/styleProps";
+import { HEADER_HEIGHT } from "components/Header/styles";
 
 const STORY_HEADER_MARGIN_Y = 32;
 export const STORY_HEADER_HEIGTH = STORY_HEADER_MARGIN_Y * 2 + 100;

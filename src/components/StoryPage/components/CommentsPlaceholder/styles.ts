@@ -1,11 +1,11 @@
-import { HEADER_HEIGHT } from "../../../Header/styles";
-import { STORY_HEADER_HEIGTH } from "../../styles";
+import { HEADER_HEIGHT } from "components/Header/styles";
+import { darkGray } from "constants/colors";
 import {
   COMMENT_TITLE_HEIGHT,
   COMMENT_TITLE_MARGIN_BOTTOM,
   COMMENTS_PADDING_Y,
 } from "../Comments/styles";
-import { darkGray } from "../../../../constants/colors";
+import { STORY_HEADER_HEIGTH } from "../../styles";
 
 export const styles = {
   placeholderWrapper: {

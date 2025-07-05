@@ -1,5 +1,5 @@
-import { borderGray, lightGray } from "../../../../constants/colors";
-import { HEADER_HEIGHT } from "../../../Header/styles";
+import { borderGray, lightGray } from "constants/colors";
+import { HEADER_HEIGHT } from "components/Header/styles";
 import { STORY_HEADER_HEIGTH } from "../../styles";
 import {
   COMMENT_TITLE_HEIGHT,

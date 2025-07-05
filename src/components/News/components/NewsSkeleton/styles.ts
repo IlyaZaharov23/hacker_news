@@ -1,4 +1,4 @@
-import { borderGray, white } from "../../../../constants/colors";
+import { borderGray, white } from "constants/colors";
 
 const SKELETON_PADDING_X = 12;
 const SKELETON_BORDER = 1;

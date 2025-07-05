@@ -1,4 +1,4 @@
-import { darkGray } from "../../../../../../constants/colors";
+import { darkGray } from "constants/colors";
 
 export const styles = {
   commonWrapper: {
