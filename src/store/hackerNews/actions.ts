@@ -5,10 +5,13 @@ import { hackerNewsSlice } from "./reducers";
 
 export const {
   setActiveStory,
+  removeActiveStory,
   setNewStories,
-  setStoryComments,
+  addActiveStory,
+  addStoryComments,
+  removeStoryComments,
   addNestedCommentsById,
-  removeNestedComments
+  removeNestedComments,
 } = hackerNewsSlice.actions;
 
 export const getStoryIds = createAppAsyncThunk(

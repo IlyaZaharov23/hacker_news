@@ -10,8 +10,9 @@ import {
   setNewStories,
   getStoryIds,
 } from "../../store/hackerNews/actions";
-import { ProgressLoader } from "../ProgressLoader";
 import { NewsItem } from "./components/NewsItem";
+import { NewsSkeleton } from "./components/NewsSkeleton";
+import { NewsPlaceholder } from "./components/NewsPlaceholder";
 
 function News() {
   const news = useAppSelector(newStoriesGet);
@@ -54,16 +55,21 @@ function News() {
         showBack
         showUpdate
       />
-      <Box sx={styles.contentWrapper}>
-        {isLoading ? (
-          <ProgressLoader fullScreen />
-        ) : (
-          <Box sx={styles.listWrapper}>
-            {news.map((item) => (
-              <NewsItem key={item.id} item={item} />
-            ))}
-          </Box>
-        )}
+      <Box
+        sx={{
+          ...styles.contentWrapper,
+          ...(isLoading && styles.loadingWrapper),
+        }}
+      >
+        <Box sx={styles.listWrapper}>
+          {isLoading ? (
+            <NewsSkeleton />
+          ) : news.length === 0 && !isLoading ? (
+            <NewsPlaceholder />
+          ) : (
+            news.map((item) => <NewsItem key={item.id} item={item} />)
+          )}
+        </Box>
       </Box>
     </Box>
   );

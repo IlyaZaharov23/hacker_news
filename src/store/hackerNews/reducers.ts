@@ -3,8 +3,13 @@ import { StoryType, CommentType } from "../../types/componentTypes";
 
 interface HackerNewsState {
   newStories: StoryType[];
+  activeStories: {
+    [storyId: number]: StoryType | null;
+  };
   story: StoryType | null;
-  storyComments: CommentType[];
+  storyComments: {
+    [storyId: number]: CommentType[] | null;
+  };
   nestedStoryComments: {
     [parentCommentId: number]: CommentType[];
   };
@@ -13,7 +18,8 @@ interface HackerNewsState {
 const initialState: HackerNewsState = {
   newStories: [],
   story: null,
-  storyComments: [],
+  activeStories: {},
+  storyComments: {},
   nestedStoryComments: {},
 };
 
@@ -27,6 +33,18 @@ export const hackerNewsSlice = createSlice({
     setActiveStory: (state, action) => {
       state.story = action.payload;
     },
+    addActiveStory: (state, action) => {
+      state.activeStories[action.payload.id] = action.payload.story;
+    },
+    removeActiveStory: (state, action) => {
+      delete state.activeStories[action.payload.id];
+    },
+    addStoryComments: (state, action) => {
+      state.storyComments[action.payload.id] = action.payload.comments;
+    },
+    removeStoryComments: (state, action) => {
+      delete state.storyComments[action.payload.id];
+    },
     setStoryComments: (state, action) => {
       state.storyComments = action.payload;
     },
@@ -34,7 +52,7 @@ export const hackerNewsSlice = createSlice({
       state.nestedStoryComments[action.payload.id] = action.payload.comments;
     },
     removeNestedComments: (state, action) => {
-      delete state.nestedStoryComments[action.payload.Id];
+      delete state.nestedStoryComments[action.payload.id];
     },
   },
 });

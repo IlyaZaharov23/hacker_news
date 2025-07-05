@@ -25,6 +25,8 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [nestedCommentsIds, setNestedCommentsIds] = useState<number[]>([]);
 
+  const isNestedHidden = !nestedCommentsIds.includes(comment.id);
+
   const addCommentIdToNestedList = (id: number) => {
     setNestedCommentsIds((prev) => [...prev, id]);
   };
@@ -52,15 +54,6 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
     }
   };
 
-  //   const handleClick = async (ids: number[], commentId: number) => {
-  //     if (nestedCommentsIds.includes(commentId)) {
-  //       deleteCommentIdFromNestedList(commentId);
-  //     } else {
-  //       await loadNestedComments(ids);
-  //       addCommentIdToNestedList(commentId);
-  //     }
-  //   };
-
   return (
     <Box sx={styles.commentWrapper}>
       <Box sx={styles.commentInfoWrapper}>
@@ -76,10 +69,17 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
       {comment.kids && comment.kids.length > 0 && (
         <Box sx={styles.buttonWrapper}>
           {isLoading ? (
-            <ProgressLoader size={24} />
+            <Box ml="4rem">
+              <ProgressLoader size={32} />
+            </Box>
           ) : (
-            <Box sx={styles.nestedCommentsWrapper}>
-              {nestedCommentsIds.includes(comment.id) && (
+            <Box
+              sx={{
+                ...styles.nestedCommentsWrapper,
+                ...(isNestedHidden && styles.hiddenNestedCommetsWrapper),
+              }}
+            >
+              {!isNestedHidden && (
                 <Button
                   sx={styles.button}
                   startIcon={<ArrowUpwardIcon />}
@@ -88,10 +88,8 @@ export const CommentItem: FC<PropsType> = ({ comment }) => {
                   Hide Nested Comments
                 </Button>
               )}
-              {nestedCommentsIds.includes(comment.id) && (
-                <NestedComments commentId={comment.id} />
-              )}
-              {!nestedCommentsIds.includes(comment.id) && (
+              {!isNestedHidden && <NestedComments commentId={comment.id} />}
+              {isNestedHidden && (
                 <Button
                   sx={styles.button}
                   startIcon={<ArrowDownwardIcon />}

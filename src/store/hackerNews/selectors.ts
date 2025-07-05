@@ -1,8 +1,9 @@
 import { RootState } from "..";
 
 export const newStoriesGet = (state: RootState) => state.hackerNews.newStories;
-export const activeStoryGet = (state: RootState) => state.hackerNews.story;
-export const storyCommentsGet = (state: RootState) =>
-  state.hackerNews.storyComments;
+export const storyCommentsGetById = (state: RootState, storyId: number) =>
+  state.hackerNews.storyComments[storyId];
 export const nestedCommentsGetById = (state: RootState, id: number) =>
   state.hackerNews.nestedStoryComments[id];
+export const activeStoryGetById = (state: RootState, id: number) =>
+  state.hackerNews.activeStories[id];

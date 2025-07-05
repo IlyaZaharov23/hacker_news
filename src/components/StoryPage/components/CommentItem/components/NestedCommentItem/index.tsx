@@ -6,6 +6,7 @@ import { FC } from "react";
 import { styles } from "./styles";
 import { CustomDivider } from "../../../../../CustomDivider";
 import { DIVIDER_TYPE } from "../../../../../../constants/dividerTypes";
+import { DeletedNestedComment } from "../DeletedNestedComment";
 
 type NestedCommentItemPropsType = {
   comment: CommentType;
@@ -14,6 +15,8 @@ type NestedCommentItemPropsType = {
 export const NestedCommentItem: FC<NestedCommentItemPropsType> = ({
   comment,
 }) => {
+  if (comment.deleted) return <DeletedNestedComment />;
+
   return (
     <Box sx={styles.commonWrapper}>
       <Box sx={styles.commentInfoWrapper}>

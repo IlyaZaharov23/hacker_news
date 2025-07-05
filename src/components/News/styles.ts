@@ -18,8 +18,11 @@ export const styles = {
     maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
     backgroundColor: lightBrown,
   },
+  loadingWrapper: {
+    overflowY: "hidden",
+  },
   listWrapper: {
-    width: "50vw",
+    width: "60vw",
     backgroundColor: white,
     padding: "2rem 4rem",
   },
