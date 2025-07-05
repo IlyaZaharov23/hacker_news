@@ -1,11 +1,13 @@
-import { Box, Typography } from "@mui/material";
-import { useAppSelector } from "../../../../store/hooks";
-import { storyCommentsGetById } from "../../../../store/hackerNews/selectors";
-import { CommentItem } from "../CommentItem";
-import { styles } from "./styles";
 import { FC } from "react";
+import { Box, Typography } from "@mui/material";
+
+import { useAppSelector } from "store/hooks";
+import { storyCommentsGetById } from "store/hackerNews/selectors";
+
+import { CommentItem } from "../CommentItem";
 import { CommentsSkeleton } from "../CommentsSkeleton";
 import { CommentsPlaceholder } from "../CommentsPlaceholder";
+import { styles } from "./styles";
 
 type CommentsPropsType = {
   storyId: number | undefined;

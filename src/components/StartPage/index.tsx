@@ -1,8 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import mainLogo from '../../assets/mainLogo.svg'
-
-import { SCREEN_ROUTES } from "../../routes/constants";
+import mainLogo from 'assets/mainLogo.svg'
+import { SCREEN_ROUTES } from "routes/constants";
 import { styles } from "./styles";
 
 function StartPage() {

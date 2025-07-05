@@ -1,4 +1,4 @@
-import { white, borderGray } from "../../constants/colors";
+import { white, borderGray } from "constants/colors";
 
 export const styles = {
   fullScreen: {

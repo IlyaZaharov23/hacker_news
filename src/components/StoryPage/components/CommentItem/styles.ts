@@ -1,8 +1,4 @@
-import {
-  darkGray,
-  semiLightGray,
-  black,
-} from "../../../../constants/colors";
+import { darkGray, semiLightGray, black } from "constants/colors";
 
 const COMMENT_PADDING = 16;
 
@@ -57,6 +53,6 @@ export const styles = {
     marginBottom: "1rem",
   },
   hiddenNestedCommetsWrapper: {
-    marginBottom: '0'
-  }
+    marginBottom: "0",
+  },
 };

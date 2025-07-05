@@ -1,6 +1,6 @@
 import { Box, Skeleton } from "@mui/material";
-import { CustomDivider } from "../../../CustomDivider";
-import { DIVIDER_TYPE } from "../../../../constants/dividerTypes";
+import { CustomDivider } from "components/CustomDivider";
+import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { styles } from "./styles";
 
 export const NewsSkeleton = () => {

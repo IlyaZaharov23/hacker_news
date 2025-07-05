@@ -4,7 +4,7 @@ import {
   lightGray,
   darkGray,
   white,
-} from "../../../../constants/colors";
+} from "constants/colors";
 
 export const styles = {
   newsItemWrapper: {

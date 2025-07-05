@@ -1,14 +1,16 @@
-import { Box, Typography } from "@mui/material";
-import { useParams } from "react-router-dom";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import { useAppSelector } from "../../../../store/hooks";
-import { DateUtil } from "../../../../utiles/DateUtil";
-import { DIVIDER_TYPE } from "../../../../constants/dividerTypes";
-import { CustomDivider } from "../../../CustomDivider";
-import { styles } from "../../styles";
-import { activeStoryGetById } from "../../../../store/hackerNews/selectors";
-import { HeaderSkeleton } from "../HeaderSkeleton";
 import { FC } from "react";
+import { useParams } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+
+import { CustomDivider } from "components/CustomDivider";
+import { useAppSelector } from "store/hooks";
+import { activeStoryGetById } from "store/hackerNews/selectors";
+import { DateUtil } from "utiles/DateUtil";
+import { DIVIDER_TYPE } from "constants/dividerTypes";
+
+import { HeaderSkeleton } from "../HeaderSkeleton";
+import { styles } from "../../styles";
 
 type HeaderPropsType = {
   isLoading: boolean;

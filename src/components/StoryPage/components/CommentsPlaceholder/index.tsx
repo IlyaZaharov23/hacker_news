@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import emptyCommentsList from "../../../../assets/emptyCommentsList.svg";
+import emptyCommentsList from "assets/emptyCommentsList.svg";
 import { styles } from "./styles";
 
 export const CommentsPlaceholder = () => {

@@ -1,12 +1,13 @@
+import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
-import { CommentType } from "../../../../../../types/componentTypes";
-import { DateUtil } from "../../../../../../utiles/DateUtil";
-import { FC } from "react";
-import { styles } from "./styles";
-import { CustomDivider } from "../../../../../CustomDivider";
-import { DIVIDER_TYPE } from "../../../../../../constants/dividerTypes";
+import { CustomDivider } from "components/CustomDivider";
+import { CommentType } from "types/componentTypes";
+import { DateUtil } from "utiles/DateUtil";
+import { DIVIDER_TYPE } from "constants/dividerTypes";
+
 import { DeletedNestedComment } from "../DeletedNestedComment";
+import { styles } from "./styles";
 
 type NestedCommentItemPropsType = {
   comment: CommentType;

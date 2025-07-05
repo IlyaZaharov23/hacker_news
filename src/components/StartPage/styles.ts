@@ -2,7 +2,7 @@ import {
   white,
   orangePrimary,
   black,
-} from "../../constants/colors";
+} from "constants/colors";
 
 export const styles = {
   pageWrapper: {
