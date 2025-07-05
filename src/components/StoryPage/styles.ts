@@ -7,6 +7,10 @@ import {
   borderGray,
 } from "./../../constants/colors";
 import { boxShadow } from "../../constants/styleProps";
+
+const STORY_HEADER_MARGIN_Y = 32;
+export const STORY_HEADER_HEIGTH = STORY_HEADER_MARGIN_Y * 2 + 100;
+
 export const styles = {
   commonWrapper: {
     backgroundColor: lightBrown,
@@ -16,9 +20,16 @@ export const styles = {
     overflowY: "auto",
     maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
   },
+  contentWrapper: {
+    maxHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,
+    overflowY: "hidden",
+  },
+  loadingWrapper: {
+    overflowY: "hidden",
+  },
   storyWrapper: {
-    width: "70vw",
-    margin: "2rem auto",
+    width: "80vw",
+    margin: `${STORY_HEADER_MARGIN_Y}px auto`,
     padding: "1rem 1.5rem",
     borderRadius: "10px",
     backgroundColor: white,

@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { UrlUtil } from "../../../../utiles/UrlUtil";
 import { SCREEN_ROUTES } from "../../../../routes/constants";
 import {
-  setActiveStory,
   getCommentById,
-  setStoryComments,
+  addStoryComments,
+  addActiveStory,
 } from "../../../../store/hackerNews/actions";
 import { useAppDispatch } from "../../../../store/hooks";
 import { CustomDivider } from "../../../CustomDivider";
@@ -29,7 +29,7 @@ export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {
         dispatch(getCommentById(id)).unwrap()
       );
       await Promise.all(idsPromices || []).then((res) => {
-        dispatch(setStoryComments(res));
+        dispatch(addStoryComments({ id: item.id, comments: res }));
       });
     } catch (error) {
       console.log(error);
@@ -39,7 +39,7 @@ export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {
   const goToStory = async (storyId: number) => {
     try {
       navigate(UrlUtil.generatePathWithId(SCREEN_ROUTES.NEWS_ITEM, storyId));
-      dispatch(setActiveStory(item));
+      dispatch(addActiveStory({ id: item.id, story: item }));
       getStoryComments(item.kids);
     } catch (error) {
       console.log(error);

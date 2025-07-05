@@ -18,4 +18,5 @@ export type CommentType = {
   text: string;
   time: number;
   type: string;
+  deleted?: boolean
 };

@@ -25,11 +25,7 @@ export const ProgressLoader: FC<LoaderTypeProps> = ({
     >
       <CircularProgress
         size={fullScreen ? 40 : centerInParent ? 32 : size}
-        sx={
-          fullScreen || centerInParent
-            ? styles.customLoader
-            : styles.defaultLoader
-        }
+        sx={styles.customLoader}
       />
     </Box>
   );

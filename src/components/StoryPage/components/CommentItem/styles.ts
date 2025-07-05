@@ -6,13 +6,17 @@ import {
   black,
 } from "../../../../constants/colors";
 
+const COMMENT_PADDING = 16;
+
 export const styles = {
   commentWrapper: {
-    padding: "1rem",
+    padding: `${COMMENT_PADDING}px`,
     border: `1px solid ${borderGray}`,
     borderRadius: "6px",
-    margin: "0 0 1rem",
+    marginBottom: "1rem",
     backgroundColor: lightGray,
+    // 16px - scroll width + some paddings_x
+    width: `calc(100% - ${COMMENT_PADDING * 2 + 16}px)`,
   },
   commentInfoWrapper: {
     display: "flex",
@@ -54,7 +58,10 @@ export const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: '5rem',
-    marginBottom: '1rem'
+    marginLeft: "5rem",
+    marginBottom: "1rem",
   },
+  hiddenNestedCommetsWrapper: {
+    marginBottom: '0'
+  }
 };
