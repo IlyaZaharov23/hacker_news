@@ -1,9 +1,11 @@
 import { borderGray, lightGray } from "../../../../constants/colors";
 import { HEADER_HEIGHT } from "../../../Header/styles";
-import {  } from "../Comments/styles";
 import { STORY_HEADER_HEIGTH } from "../../styles";
-import { COMMENT_TITLE_HEIGHT, COMMENT_TITLE_MARGIN_BOTTOM } from "../Comments/styles";
-import { COMMENTS_PADDING_Y } from "../Comments/styles";
+import {
+  COMMENT_TITLE_HEIGHT,
+  COMMENT_TITLE_MARGIN_BOTTOM,
+  COMMENTS_PADDING_Y,
+} from "../Comments/styles";
 
 const SKELETON_ITEM_PADDING = 16;
 const SKELETON_ITEM_BORDER = 1;
