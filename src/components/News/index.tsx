@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
 import { useAppSelector, useAppDispatch } from "store/hooks";
@@ -7,7 +8,7 @@ import {
   setNewStories,
   getStoryIds,
 } from "store/hackerNews/actions";
-import { newStoriesGet } from "store/hackerNews/selectors";
+import { newStoriesGet, getShowedStoryType } from "store/hackerNews/selectors";
 
 import { Header } from "../Header";
 import { NewsItem } from "./components/NewsItem";
@@ -17,7 +18,10 @@ import { styles } from "./styles";
 
 function News() {
   const news = useAppSelector(newStoriesGet);
+  const storiesShowedType = useAppSelector(getShowedStoryType);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const getStories = async (ids: number[]) => {
@@ -33,7 +37,7 @@ function News() {
     if (isLoading) return;
     try {
       setIsLoading(true);
-      const ids = await dispatch(getStoryIds()).unwrap();
+      const ids = await dispatch(getStoryIds(storiesShowedType)).unwrap();
       await getStories(ids);
     } catch (error) {
       console.log(error);
@@ -43,10 +47,12 @@ function News() {
   };
 
   useEffect(() => {
-    if (news.length === 0) {
+    if (location.state?.fromBack) {
+      navigate(".", { state: { fromBack: false }, replace: true });
+    } else {
       showAllNews();
     }
-  }, []);
+  }, [storiesShowedType]);
 
   return (
     <Box sx={styles.mainWrapper}>
@@ -55,6 +61,7 @@ function News() {
         isLoading={isLoading}
         showBack
         showUpdate
+        showMenu
       />
       <Box
         sx={{

@@ -26,6 +26,7 @@ function StoryPage() {
 
   const getStoryComments = async (ids: number[]) => {
     try {
+      if (!ids) return;
       const idsPromices = ids.map((id) =>
         dispatch(getCommentById(id)).unwrap()
       );

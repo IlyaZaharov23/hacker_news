@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { StoryType, CommentType } from "../../types/componentTypes";
+import { StoryType, CommentType } from "types/componentTypes";
+import { API_ENDPOINTS } from "config/api";
 
 interface HackerNewsState {
   newStories: StoryType[];
@@ -13,6 +14,7 @@ interface HackerNewsState {
   nestedStoryComments: {
     [parentCommentId: number]: CommentType[];
   };
+  showedStoryType: string;
 }
 
 const initialState: HackerNewsState = {
@@ -21,6 +23,7 @@ const initialState: HackerNewsState = {
   activeStories: {},
   storyComments: {},
   nestedStoryComments: {},
+  showedStoryType: API_ENDPOINTS.TOP_STORIES,
 };
 
 export const hackerNewsSlice = createSlice({
@@ -53,6 +56,9 @@ export const hackerNewsSlice = createSlice({
     },
     removeNestedComments: (state, action) => {
       delete state.nestedStoryComments[action.payload.id];
+    },
+    setShowedStoryType: (state, action) => {
+      state.showedStoryType = action.payload;
     },
   },
 });

@@ -7,3 +7,5 @@ export const nestedCommentsGetById = (state: RootState, id: number) =>
   state.hackerNews.nestedStoryComments[id];
 export const activeStoryGetById = (state: RootState, id: number) =>
   state.hackerNews.activeStories[id];
+export const getShowedStoryType = (state: RootState) =>
+  state.hackerNews.showedStoryType;
