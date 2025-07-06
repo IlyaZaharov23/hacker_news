@@ -12,9 +12,8 @@ export const NestedComments: FC<NestedCommentsPropsType> = ({ commentId }) => {
   const nestedComments = useAppSelector((state) =>
     nestedCommentsGetById(state, commentId)
   );
-
   return (
-    <Box>
+    <Box width="100%">
       {nestedComments.map((comment) => (
         <NestedCommentItem key={comment.id} comment={comment} />
       ))}

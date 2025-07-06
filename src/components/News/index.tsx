@@ -9,6 +9,7 @@ import {
   getStoryIds,
 } from "store/hackerNews/actions";
 import { newStoriesGet, getShowedStoryType } from "store/hackerNews/selectors";
+import { storiesTypeConfig } from "./storiesTypeConfig";
 
 import { Header } from "../Header";
 import { NewsItem } from "./components/NewsItem";
@@ -37,7 +38,9 @@ function News() {
     if (isLoading) return;
     try {
       setIsLoading(true);
-      const ids = await dispatch(getStoryIds(storiesShowedType)).unwrap();
+      const ids = await dispatch(
+        getStoryIds(storiesTypeConfig[storiesShowedType])
+      ).unwrap();
       await getStories(ids);
     } catch (error) {
       console.log(error);
@@ -49,7 +52,8 @@ function News() {
   useEffect(() => {
     if (location.state?.fromBack) {
       navigate(".", { state: { fromBack: false }, replace: true });
-    } else {
+    }
+    if (!location.state?.fromBack || news.length === 0) {
       showAllNews();
     }
   }, [storiesShowedType]);

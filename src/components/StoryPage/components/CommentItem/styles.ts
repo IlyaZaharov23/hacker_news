@@ -1,4 +1,4 @@
-import { darkGray, semiLightGray, black } from "constants/colors";
+import { darkGray } from "constants/colors";
 
 const COMMENT_PADDING = 16;
 
@@ -35,14 +35,6 @@ export const styles = {
     alignItems: "center",
     justifyContent: "center",
     marginTop: "0.5rem",
-  },
-  button: {
-    fontSize: "0.75rem",
-    fontWeight: "600",
-    color: black,
-    "&:hover": {
-      backgroundColor: semiLightGray,
-    },
   },
   nestedCommentsWrapper: {
     display: "flex",
