@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { StoryType, CommentType } from "types/componentTypes";
-import { API_ENDPOINTS } from "config/api";
+import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
 
 interface HackerNewsState {
   newStories: StoryType[];
@@ -23,7 +23,7 @@ const initialState: HackerNewsState = {
   activeStories: {},
   storyComments: {},
   nestedStoryComments: {},
-  showedStoryType: API_ENDPOINTS.TOP_STORIES,
+  showedStoryType: STORIES_SHOWED_TYPE.NEW,
 };
 
 export const hackerNewsSlice = createSlice({

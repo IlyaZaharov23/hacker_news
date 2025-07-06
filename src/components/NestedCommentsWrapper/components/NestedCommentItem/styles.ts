@@ -5,6 +5,7 @@ export const styles = {
     display: "flex",
     flexDirection: "column",
     margin: "1rem 0 0",
+    width: "100%",
   },
   commentInfoWrapper: {
     display: "flex",

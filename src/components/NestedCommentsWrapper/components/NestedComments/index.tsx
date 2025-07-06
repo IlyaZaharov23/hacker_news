@@ -13,8 +13,10 @@ export const NestedComments: FC<NestedCommentsPropsType> = ({ commentId }) => {
     nestedCommentsGetById(state, commentId)
   );
 
+  console.log(nestedComments);
+
   return (
-    <Box>
+    <Box width="100%">
       {nestedComments.map((comment) => (
         <NestedCommentItem key={comment.id} comment={comment} />
       ))}
