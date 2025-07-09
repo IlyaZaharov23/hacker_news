@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Menu, MenuItem, Typography } from "@mui/material";
 import { setShowedStoryType } from "store/hackerNews/actions";
-import { getShowedStoryType } from "store/hackerNews/selectors";
+import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { menuItems } from "./menuConfig";

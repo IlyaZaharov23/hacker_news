@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 import { CustomDivider } from "components/CustomDivider";
 import { CommentType } from "types/componentTypes";
-import { DateUtil } from "utiles/DateUtil";
+import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 
 import { DeletedNestedComment } from "../DeletedNestedComment";

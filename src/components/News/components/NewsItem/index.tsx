@@ -6,8 +6,8 @@ import { SCREEN_ROUTES } from "routes/constants";
 import { addActiveStory } from "store/hackerNews/actions";
 import { useAppDispatch } from "store/hooks";
 import { StoryType } from "types/componentTypes";
-import { DateUtil } from "utiles/DateUtil";
-import { UrlUtil } from "utiles/UrlUtil";
+import { DateUtil } from "utiles/DateUtil/DateUtil";
+import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { styles } from "./styles";
 
