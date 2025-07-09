@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import { useAppSelector, useAppDispatch } from "store/hooks";
-import { activeStoryGetById } from "store/hackerNews/selectors";
+import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetById";
 import {
   getStoryById,
   getCommentById,
@@ -10,7 +10,7 @@ import {
   addActiveStory,
   removeActiveStory,
 } from "store/hackerNews/actions";
-import { UrlUtil } from "utiles/UrlUtil";
+import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { Comments } from "./components/Comments";
 import { StoryHeader } from "./components/StoryHeader";
 import { Header } from "../Header";
@@ -36,7 +36,7 @@ function StoryPage() {
     } catch (error) {
       console.log(error);
     }
-  };
+  };  
 
   const getCurrentStory = async () => {
     try {

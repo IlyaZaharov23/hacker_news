@@ -8,7 +8,8 @@ import {
   setNewStories,
   getStoryIds,
 } from "store/hackerNews/actions";
-import { newStoriesGet, getShowedStoryType } from "store/hackerNews/selectors";
+import { newStoriesGet } from "store/hackerNews/selectors/newStoriesGet";
+import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { storiesTypeConfig } from "./storiesTypeConfig";
 
 import { Header } from "../Header";

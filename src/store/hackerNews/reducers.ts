@@ -17,7 +17,7 @@ interface HackerNewsState {
   showedStoryType: string;
 }
 
-const initialState: HackerNewsState = {
+export const initialState: HackerNewsState = {
   newStories: [],
   story: null,
   activeStories: {},

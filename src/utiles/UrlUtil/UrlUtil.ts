@@ -2,6 +2,12 @@ import { generatePath } from "react-router-dom";
 
 export class UrlUtil {
   static generatePathWithId(route: string, id: number) {
+    if (id < 0) {
+      throw new Error('ID cannot be negative.');
+    }
+    if (id === 0) {
+      throw new Error('ID cannot be 0.')
+    }
     return generatePath(route, { id });
   }
   static cutIdFromUrl() {

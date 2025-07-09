@@ -5,8 +5,8 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
 import { CustomDivider } from "components/CustomDivider";
 import { useAppSelector } from "store/hooks";
-import { activeStoryGetById } from "store/hackerNews/selectors";
-import { DateUtil } from "utiles/DateUtil";
+import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetById";
+import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 
 import { HeaderSkeleton } from "../HeaderSkeleton";

@@ -1,7 +1,14 @@
 export class DateUtil {
   static formatTimeAgo(timestamp: number): string {
+    if (timestamp < 0) {
+      throw new Error("Timestamp cannot be negative");
+    }
     const now = Date.now();
     const diffInSeconds = Math.floor((now - timestamp * 1000) / 1000);
+
+    if (diffInSeconds < 0) {
+      throw new Error("Timestamp cannot be negative");
+    }
 
     const minute = 60;
     const hour = minute * 60;

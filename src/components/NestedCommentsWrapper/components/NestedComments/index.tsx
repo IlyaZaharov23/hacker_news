@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Box } from "@mui/material";
 import { useAppSelector } from "store/hooks";
-import { nestedCommentsGetById } from "store/hackerNews/selectors";
+import { nestedCommentsGetById } from "store/hackerNews/selectors/nestedCommentsGetById";
 import { NestedCommentItem } from "../NestedCommentItem";
 
 type NestedCommentsPropsType = {

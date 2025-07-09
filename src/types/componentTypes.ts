@@ -1,12 +1,12 @@
 export type StoryType = {
   by: string;
-  descendants: number;
+  descendants?: number;
   id: number;
   kids?: number[];
-  score: number;
+  score?: number;
   time: number;
   title: string;
-  type: string;
+  type?: string;
   url: string;
 };
 
