@@ -7,7 +7,6 @@ import {
   getStoryById,
   getCommentById,
   addStoryComments,
-  addActiveStory,
 } from "store/hackerNews/actions";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { TEST_ID } from "constants/testIds";
@@ -44,7 +43,6 @@ function StoryPage() {
       const currentId = UrlUtil.getIdFromUrl(params.id);
       const res = await dispatch(getStoryById(currentId)).unwrap();
       await getStoryComments(res.kids);
-      dispatch(addActiveStory({ id: res.id, story: res }));
     } catch (error) {
       console.log(error);
     } finally {
@@ -57,7 +55,10 @@ function StoryPage() {
   }, []);
 
   return (
-    <Box sx={styles.commonWrapper} data-testid={TEST_ID.STORY_PAGE.STORY_PAGE_ROOT}>
+    <Box
+      sx={styles.commonWrapper}
+      data-testid={TEST_ID.STORY_PAGE.STORY_PAGE_ROOT(Number(params.id))}
+    >
       <Header showBack />
       <Box sx={styles.contentWrapper}>
         <StoryHeader isLoading={isLoading} />

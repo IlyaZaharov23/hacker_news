@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TEST_ID } from "constants/testIds";
+import { SCREEN_ROUTES } from "routes/constants";
 import { TestRender } from "routes/testRender";
 
 describe("START_PAGE_TEST", () => {
   test("page elements are rendered", async () => {
-    render(<TestRender />);
+    render(<TestRender baseRoute={SCREEN_ROUTES.START_PAGE} />);
     const pageRoot = await screen.findByTestId(
       TEST_ID.START_PAGE.START_PAGE_ROOT
     );
@@ -20,7 +21,7 @@ describe("START_PAGE_TEST", () => {
     expect(goToNewsButton).toBeInTheDocument();
   });
   test("navigate to news", async () => {
-    render(<TestRender />);
+    render(<TestRender baseRoute={SCREEN_ROUTES.START_PAGE} />);
     const button = await screen.findByTestId(
       TEST_ID.START_PAGE.GO_TO_NEWS_BUTTON
     );
@@ -30,7 +31,9 @@ describe("START_PAGE_TEST", () => {
     ).toBeInTheDocument();
   });
   test("matches snapshot", () => {
-    const { asFragment } = render(<TestRender />);
+    const { asFragment } = render(
+      <TestRender baseRoute={SCREEN_ROUTES.START_PAGE} />
+    );
     expect(asFragment).toMatchSnapshot();
   });
 });

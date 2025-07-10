@@ -1,5 +1,5 @@
-import { StoryType } from "types/componentTypes";
-import { CommentType } from "types/componentTypes";
+import { StoryType } from "types/commonTypes";
+import { CommentType } from "types/commonTypes";
 
 export interface HackerNewsStateType {
   newStories: StoryType[];

@@ -6,6 +6,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import mainLogo from "assets/mainLogo.svg";
 import { SCREEN_ROUTES } from "routes/constants";
+import { TEST_ID } from "constants/testIds";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { StoriesTypeSwitcher } from "./components/StoriesTypeSwitcher";
 import { styles } from "./styles";
@@ -48,14 +49,15 @@ export const Header: FC<HeaderPropsType> = ({
     }
   };
   return (
-    <Box sx={styles.commonWrapper}>
+    <Box sx={styles.commonWrapper} data-testid={TEST_ID.HEADER.HEADER_ROOT}>
       <Box
         sx={{ ...styles.button, visibility: showBack ? "visible" : "hidden" }}
         onClick={handleGoBack}
+        data-testid={TEST_ID.HEADER.BACK_BUTTON}
       >
         <ArrowBackIosNewIcon sx={styles.icon} />
       </Box>
-      <Box sx={styles.logoWrapper}>
+      <Box sx={styles.logoWrapper} data-testid={TEST_ID.HEADER.APP_LOGO}>
         <img src={mainLogo} alt="logo" width={32} />
         <Typography sx={styles.title}>Hacker News</Typography>
       </Box>
@@ -66,6 +68,7 @@ export const Header: FC<HeaderPropsType> = ({
             visibility: showUpdate ? "visible" : "hidden",
           }}
           onClick={refreshNews}
+          data-testid={TEST_ID.HEADER.UPDATE_BUTTON}
         >
           <RefreshIcon sx={styles.icon} />
         </Box>
@@ -75,6 +78,7 @@ export const Header: FC<HeaderPropsType> = ({
             visibility: showMenu ? "visible" : "hidden",
           }}
           onClick={openSwitcher}
+          data-testid={TEST_ID.HEADER.MENU_BUTTON}
         >
           <MenuIcon sx={styles.icon} />
         </Box>

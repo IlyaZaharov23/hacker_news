@@ -10,7 +10,7 @@ import {
   addNestedCommentsById,
   removeNestedCommentsById,
 } from "store/hackerNews/actions";
-import { CommentType } from "types/componentTypes";
+import { CommentType } from "types/commonTypes";
 import { NestedComments } from "./components/NestedComments";
 import { styles } from "./styles";
 

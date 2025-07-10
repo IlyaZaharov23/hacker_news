@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { StoryType } from "types/componentTypes";
+import { StoryType } from "types/commonTypes";
 import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
 import {
   HackerNewsStateType,

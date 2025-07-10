@@ -45,7 +45,7 @@ function News() {
       ).unwrap();
       await getStories(ids);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     } finally {
       setIsLoading(false);
     }

@@ -3,7 +3,7 @@ export const TEST_STORY_1 = {
   id: 8863,
   kids: [9224, 8917, 8884],
   time: 1175714200,
-  title: "My YC app: Dropbox - Throw away your USB drive",
+  title: "My YC app",
   url: "http://www.getdropbox.com/u/2/screencast.html",
 };
 
@@ -12,7 +12,7 @@ export const TEST_STORY_2 = {
   id: 8864,
   kids: [9225, 8918, 8885],
   time: 1175214200,
-  title: "My YC app: Dropbox - Throw away your USB drive",
+  title: "Dropbox - Throw away your USB drive",
   url: "http://www.getdropbox.com/u/2/screencast.html",
 };
 
