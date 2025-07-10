@@ -1,4 +1,4 @@
-import { initialState } from "store/hackerNews/reducers";
+import { initialState } from "store/hackerNews/reducers/reducers";
 import { nestedCommentsGetById } from ".";
 import { RootState } from "store";
 import {
