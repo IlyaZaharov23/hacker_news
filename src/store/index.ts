@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { hackerNewsSlice } from "./hackerNews/reducers";
+import { hackerNewsSlice } from "./hackerNews/reducers/reducers";
 
 export const store = configureStore({
   reducer: {

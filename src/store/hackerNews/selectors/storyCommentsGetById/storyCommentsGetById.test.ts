@@ -1,4 +1,4 @@
-import { initialState } from "store/hackerNews/reducers";
+import { initialState } from "store/hackerNews/reducers/reducers";
 import { storyCommentsGetById } from ".";
 import {
   TEST_COMMENT_1,

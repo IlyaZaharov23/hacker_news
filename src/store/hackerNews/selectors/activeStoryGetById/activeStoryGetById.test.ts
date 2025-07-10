@@ -1,4 +1,4 @@
-import { initialState } from "store/hackerNews/reducers";
+import { initialState } from "store/hackerNews/reducers/reducers";
 import { activeStoryGetById } from ".";
 import { TEST_STORY_1, TEST_STORY_2 } from "store/hackerNews/testContants";
 import { RootState } from "store";

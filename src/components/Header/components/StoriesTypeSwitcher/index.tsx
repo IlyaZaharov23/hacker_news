@@ -1,6 +1,11 @@
 import { FC } from "react";
 import { Menu, MenuItem, Typography } from "@mui/material";
-import { setShowedStoryType } from "store/hackerNews/actions";
+import {
+  clearActiveStories,
+  setShowedStoryType,
+  clearAllNestedComments,
+  clearAllStoryComments,
+} from "store/hackerNews/actions";
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "store/hooks";
@@ -20,6 +25,9 @@ export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
   const storiesShowedType = useAppSelector(getShowedStoryType);
   const dispatch = useAppDispatch();
   const changeStoriesType = (type: string) => {
+    dispatch(clearAllNestedComments());
+    dispatch(clearAllStoryComments());
+    dispatch(clearActiveStories());
     dispatch(setShowedStoryType?.(type));
     closeSwitcher();
   };

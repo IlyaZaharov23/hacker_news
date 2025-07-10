@@ -1,17 +1,17 @@
 import { createAppAsyncThunk } from "../hooks";
 import { API_ENDPOINTS } from "config/api";
 import { ApiWrapper } from "services";
-import { hackerNewsSlice } from "./reducers";
+import { hackerNewsSlice } from "./reducers/reducers";
 
 export const {
-  setActiveStory,
-  removeActiveStory,
   setNewStories,
   addActiveStory,
+  clearActiveStories,
   addStoryComments,
-  removeStoryComments,
+  clearAllStoryComments,
   addNestedCommentsById,
-  removeNestedComments,
+  removeNestedCommentsById,
+  clearAllNestedComments,
   setShowedStoryType
 } = hackerNewsSlice.actions;
 

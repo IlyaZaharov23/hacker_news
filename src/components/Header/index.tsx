@@ -1,15 +1,14 @@
 import { FC, useState, MouseEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import { useAppDispatch } from "store/hooks";
-import { setActiveStory } from "store/hackerNews/actions";
 import mainLogo from "assets/mainLogo.svg";
 import { StoriesTypeSwitcher } from "./components/StoriesTypeSwitcher";
 import { styles } from "./styles";
 import { SCREEN_ROUTES } from "routes/constants";
+import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 
 type HeaderPropsType = {
   showBack: boolean;
@@ -27,7 +26,7 @@ export const Header: FC<HeaderPropsType> = ({
   refreshNews,
 }) => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  const params = useParams();
 
   const [switcherOpen, setSwitcherOpen] = useState<HTMLElement | null>(null);
 
@@ -41,9 +40,12 @@ export const Header: FC<HeaderPropsType> = ({
 
   const isSwitcherOpen = Boolean(switcherOpen);
 
-  const handleGoBack = () => {
-    navigate(SCREEN_ROUTES.NEWS_LIST, { state: { fromBack: true } });
-    dispatch(setActiveStory(null));
+  const handleGoBack = () => {    
+    if (!UrlUtil.getIdFromUrl(params.id)) {
+      navigate(-1);
+    } else {
+      navigate(SCREEN_ROUTES.NEWS_LIST, { state: { fromBack: true } });
+    }
   };
   return (
     <Box sx={styles.commonWrapper}>

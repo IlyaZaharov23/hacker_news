@@ -8,7 +8,7 @@ import { ProgressLoader } from "components/ProgressLoader";
 import {
   getCommentById,
   addNestedCommentsById,
-  removeNestedComments,
+  removeNestedCommentsById,
 } from "store/hackerNews/actions";
 import { CommentType } from "types/componentTypes";
 import { NestedComments } from "./components/NestedComments";
@@ -36,7 +36,7 @@ export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
       (commentId) => commentId !== id
     );
     setNestedCommentsIds(newNestedIdList);
-    dispatch(removeNestedComments(id));
+    dispatch(removeNestedCommentsById(id));
   };
 
   const loadNestedComments = async (ids: number[]) => {

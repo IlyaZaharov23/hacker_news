@@ -8,7 +8,6 @@ import {
   getCommentById,
   addStoryComments,
   addActiveStory,
-  removeActiveStory,
 } from "store/hackerNews/actions";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { Comments } from "./components/Comments";
@@ -36,7 +35,7 @@ function StoryPage() {
     } catch (error) {
       console.log(error);
     }
-  };  
+  };
 
   const getCurrentStory = async () => {
     try {
@@ -54,11 +53,6 @@ function StoryPage() {
 
   useEffect(() => {
     getCurrentStory();
-    return () => {
-      if (window.location.pathname.includes("news")) {
-        dispatch(removeActiveStory(params.id));
-      }
-    };
   }, []);
 
   return (
