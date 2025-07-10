@@ -9,7 +9,7 @@ import {
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "store/hooks";
-import { menuItems } from "./menuConfig";
+import { menuItems } from "./constants/menuConfig";
 
 type MenuPropsType = {
   open: boolean;

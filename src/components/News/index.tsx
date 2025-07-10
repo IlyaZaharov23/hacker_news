@@ -10,8 +10,9 @@ import {
 } from "store/hackerNews/actions";
 import { newStoriesGet } from "store/hackerNews/selectors/newStoriesGet";
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
-import { storiesTypeConfig } from "./storiesTypeConfig";
+import { TEST_ID } from "constants/testIds";
 
+import { storiesTypeConfig } from "./constants/storiesTypeConfig";
 import { Header } from "../Header";
 import { NewsItem } from "./components/NewsItem";
 import { NewsSkeleton } from "./components/NewsSkeleton";
@@ -60,7 +61,7 @@ function News() {
   }, [storiesShowedType]);
 
   return (
-    <Box sx={styles.mainWrapper}>
+    <Box sx={styles.mainWrapper} data-testid={TEST_ID.NEWS_PAGE.NEWS_PAGE_ROOT}>
       <Header
         refreshNews={showAllNews}
         isLoading={isLoading}

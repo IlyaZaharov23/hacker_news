@@ -1,13 +1,14 @@
 import { UnknownAction } from "@reduxjs/toolkit";
-import { hackerNewsSlice, HackerNewsState } from "./reducers";
+import { hackerNewsSlice } from "./reducers";
+import { HackerNewsStateType } from "./reducerTypes";
 
 const hackerNewsReducer = hackerNewsSlice.reducer;
 
 export const generateTestCase = (
   actionName: string,
-  initialState: HackerNewsState,
+  initialState: HackerNewsStateType,
   action: (param: any) => UnknownAction,
-  expectedState: HackerNewsState,
+  expectedState: HackerNewsStateType,
   param?: any
 ) => {
   return test(`${actionName} test`, () => {

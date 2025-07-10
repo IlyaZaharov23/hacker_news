@@ -5,10 +5,10 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import mainLogo from "assets/mainLogo.svg";
-import { StoriesTypeSwitcher } from "./components/StoriesTypeSwitcher";
-import { styles } from "./styles";
 import { SCREEN_ROUTES } from "routes/constants";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
+import { StoriesTypeSwitcher } from "./components/StoriesTypeSwitcher";
+import { styles } from "./styles";
 
 type HeaderPropsType = {
   showBack: boolean;
@@ -40,7 +40,7 @@ export const Header: FC<HeaderPropsType> = ({
 
   const isSwitcherOpen = Boolean(switcherOpen);
 
-  const handleGoBack = () => {    
+  const handleGoBack = () => {
     if (!UrlUtil.getIdFromUrl(params.id)) {
       navigate(-1);
     } else {
