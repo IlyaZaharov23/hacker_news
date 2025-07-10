@@ -1,14 +1,19 @@
 import { lazy } from "react";
-import { SCREEN_ROUTES } from "./constants";
 
-const NewsList = lazy(() => import("../components/News"));
-const StartPage = lazy(() => import("../components/StartPage"));
-const StoryPage = lazy(() => import("../components/StoryPage"));
+const NewsList = lazy(() => import("../../components/News"));
+const StartPage = lazy(() => import("../../components/StartPage"));
+const StoryPage = lazy(() => import("../../components/StoryPage"));
 
 const SCREEN_NAMES = {
   START_PAGE: "START_PAGE",
   NEWS_LIST: "NEWS_LIST",
   NEWS_ITEMS: "NEWS_ITEM",
+};
+
+export const SCREEN_ROUTES = {
+  START_PAGE: "/",
+  NEWS_LIST: "/news",
+  NEWS_ITEM: "/story/:id",
 };
 
 const routes = [

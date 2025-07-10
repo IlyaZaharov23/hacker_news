@@ -1,22 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { StoryType, CommentType } from "types/componentTypes";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { StoryType } from "types/componentTypes";
 import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
+import {
+  HackerNewsStateType,
+  StoryPayloadType,
+  CommentsPayloadType,
+} from "./reducerTypes";
 
-export interface HackerNewsState {
-  newStories: StoryType[];
-  activeStories: {
-    [storyId: number]: StoryType | null;
-  };
-  storyComments: {
-    [storyId: number]: CommentType[] | null;
-  };
-  nestedStoryComments: {
-    [parentCommentId: number]: CommentType[];
-  };
-  showedStoryType: string;
-}
-
-export const initialState: HackerNewsState = {
+export const initialState: HackerNewsStateType = {
   newStories: [],
   activeStories: {},
   storyComments: {},
@@ -28,32 +19,35 @@ export const hackerNewsSlice = createSlice({
   name: "hackerNews",
   initialState,
   reducers: {
-    setNewStories: (state, action) => {
+    setNewStories: (state, action: PayloadAction<StoryType[]>) => {
       state.newStories = action.payload;
     },
-    addActiveStory: (state, action) => {
+    addActiveStory: (state, action: PayloadAction<StoryPayloadType>) => {
       state.activeStories[action.payload.id] = action.payload.story;
     },
     clearActiveStories: (state) => {
       state.activeStories = {};
     },
-    addStoryComments: (state, action) => {
+    addStoryComments: (state, action: PayloadAction<CommentsPayloadType>) => {
       state.storyComments[action.payload.id] = action.payload.comments;
     },
     clearAllStoryComments: (state) => {
       state.storyComments = {};
     },
-    addNestedCommentsById: (state, action) => {
+    addNestedCommentsById: (
+      state,
+      action: PayloadAction<CommentsPayloadType>
+    ) => {
       state.nestedStoryComments[action.payload.id] = action.payload.comments;
     },
-    removeNestedCommentsById: (state, action) => {
+    removeNestedCommentsById: (state, action: PayloadAction<number>) => {
       const id = action.payload;
       delete state.nestedStoryComments[id];
     },
     clearAllNestedComments: (state) => {
       state.nestedStoryComments = {};
     },
-    setShowedStoryType: (state, action) => {
+    setShowedStoryType: (state, action: PayloadAction<string>) => {
       state.showedStoryType = action.payload;
     },
   },
