@@ -5,11 +5,12 @@ import { CustomDivider } from "components/CustomDivider";
 import { SCREEN_ROUTES } from "routes/constants";
 import { addActiveStory } from "store/hackerNews/actions";
 import { useAppDispatch } from "store/hooks";
-import { StoryType } from "types/componentTypes";
+import { StoryType } from "types/commonTypes";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { styles } from "./styles";
+import { TEST_ID } from "constants/testIds";
 
 type NewsItemPropsType = {
   item: StoryType;
@@ -32,6 +33,7 @@ export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {
       key={item.id}
       sx={styles.newsItemWrapper}
       onClick={() => goToStory(item.id)}
+      data-testid={TEST_ID.NEWS_PAGE.NEWS_ITEM_IN_LIST(item.id)}
     >
       <Box sx={styles.titleWrapper}>
         <Typography sx={styles.storyTitle}>{item.title}</Typography>

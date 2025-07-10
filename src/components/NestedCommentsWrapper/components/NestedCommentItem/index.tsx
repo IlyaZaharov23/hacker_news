@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
 import { CustomDivider } from "components/CustomDivider";
-import { CommentType } from "types/componentTypes";
+import { CommentType } from "types/commonTypes";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 
