@@ -10,6 +10,7 @@ import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryTyp
 import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetById";
 import { TEST_ID } from "constants/testIds";
 import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
+import { activeStoriesGet } from "store/hackerNews/selectors/activeStoriesGet";
 
 jest.mock("store/hackerNews/actions");
 
@@ -74,6 +75,9 @@ describe("News page test", () => {
       }
       if (selector === activeStoryGetById) {
         return TEST_STORY_1;
+      }
+      if (selector === activeStoriesGet) {
+        return { [TEST_STORY_1.id]: TEST_STORY_1 };
       }
     });
     (actions.getStoryIds as unknown as jest.Mock).mockImplementation(

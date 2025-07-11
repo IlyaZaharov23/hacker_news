@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { CustomDivider } from "components/CustomDivider";
 import { SCREEN_ROUTES } from "routes/constants";
-import { addActiveStory } from "store/hackerNews/actions";
-import { useAppDispatch } from "store/hooks";
 import { StoryType } from "types/commonTypes";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
@@ -18,12 +16,10 @@ type NewsItemPropsType = {
 
 export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
 
   const goToStory = async (storyId: number) => {
     try {
       navigate(UrlUtil.generatePathWithId(SCREEN_ROUTES.NEWS_ITEM, storyId));
-      dispatch(addActiveStory({ id: item.id, story: item }));
     } catch (error) {
       console.log(error);
     }

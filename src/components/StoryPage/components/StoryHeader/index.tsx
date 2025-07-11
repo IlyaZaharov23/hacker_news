@@ -8,6 +8,7 @@ import { useAppSelector } from "store/hooks";
 import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetById";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
+import { TEST_ID } from "constants/testIds";
 
 import { HeaderSkeleton } from "../HeaderSkeleton";
 import { styles } from "../../styles";
@@ -27,7 +28,10 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
   };
 
   return (
-    <Box sx={styles.storyWrapper}>
+    <Box
+      sx={styles.storyWrapper}
+      data-testid={TEST_ID.STORY_PAGE.STORY_HEADER(Number(params.id))}
+    >
       {isLoading ? (
         <HeaderSkeleton />
       ) : (
