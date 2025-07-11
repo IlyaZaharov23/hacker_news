@@ -8,6 +8,7 @@ import { CommentItem } from "../CommentItem";
 import { CommentsSkeleton } from "../CommentsSkeleton";
 import { CommentsPlaceholder } from "../CommentsPlaceholder";
 import { styles } from "./styles";
+import { TEST_ID } from "constants/testIds";
 
 type CommentsPropsType = {
   storyId: number | undefined;
@@ -20,7 +21,10 @@ export const Comments: FC<CommentsPropsType> = ({ storyId, isLoading }) => {
   );
 
   return (
-    <Box sx={styles.commentsWrapper}>
+    <Box
+      sx={styles.commentsWrapper}
+      data-testid={TEST_ID.COMMENTS.COMMENTS_ROOT(storyId)}
+    >
       <Typography sx={styles.commentsTitle}>Comments:</Typography>
       <Box sx={styles.listWrapper}>
         {isLoading ? (

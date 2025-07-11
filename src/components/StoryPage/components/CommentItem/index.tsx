@@ -8,6 +8,7 @@ import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
 
 import { styles } from "./styles";
+import { TEST_ID } from "constants/testIds";
 
 type PropsType = {
   comment: CommentType;
@@ -15,7 +16,10 @@ type PropsType = {
 
 export const CommentItem: FC<PropsType> = ({ comment }) => {
   return (
-    <Box sx={styles.commentWrapper}>
+    <Box
+      sx={styles.commentWrapper}
+      data-testid={TEST_ID.COMMENTS.COMMENT_ITEM(comment.id)}
+    >
       <Box sx={styles.commentInfoWrapper}>
         <Typography sx={styles.commentAuthor}>{comment.by}</Typography>
         <Typography sx={styles.commentDate}>

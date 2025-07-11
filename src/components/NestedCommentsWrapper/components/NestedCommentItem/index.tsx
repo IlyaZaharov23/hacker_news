@@ -9,6 +9,7 @@ import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { DeletedNestedComment } from "../DeletedNestedComment";
 import { styles } from "./styles";
 import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
+import { TEST_ID } from "constants/testIds";
 
 type NestedCommentItemPropsType = {
   comment: CommentType;
@@ -21,7 +22,10 @@ export const NestedCommentItem: FC<NestedCommentItemPropsType> = ({
 
   return (
     <>
-      <Box sx={styles.commonWrapper}>
+      <Box
+        sx={styles.commonWrapper}
+        data-testid={TEST_ID.COMMENTS.COMMENT_ITEM(comment.id)}
+      >
         <Box sx={styles.commentInfoWrapper}>
           <Typography sx={styles.commentAuthor}>{comment.by}</Typography>
           <Typography sx={styles.commentDate}>

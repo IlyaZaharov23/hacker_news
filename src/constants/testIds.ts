@@ -11,6 +11,17 @@ export const TEST_ID = {
   },
   STORY_PAGE: {
     STORY_PAGE_ROOT: (id: number | undefined) => `story-page-root-${id}`,
+    STORY_HEADER: (id: number | undefined) => `story-header-${id}`,
+  },
+  COMMENTS: {
+    COMMENTS_ROOT: (id: number | undefined) => `comments-root-${id}`,
+    COMMENT_ITEM: (id: number | undefined) => `comment-item-${id}`,
+    SHOW_NESTED_COMMENS_BUTTON: (id: number | undefined) =>
+      `show-nested-comments-button-${id}`,
+    HIDE_NESTED_COMMENTS_BUTTON: (id: number | undefined) =>
+      `hide-nested-comments-button-${id}`,
+    NESTED_COMMENTS_ROOT: (id: number | undefined) =>
+      `nested-comments-root-${id}`,
   },
   HEADER: {
     HEADER_ROOT: "header-root",

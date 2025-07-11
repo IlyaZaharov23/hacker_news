@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { useAppSelector } from "store/hooks";
 import { nestedCommentsGetById } from "store/hackerNews/selectors/nestedCommentsGetById";
 import { NestedCommentItem } from "../NestedCommentItem";
+import { TEST_ID } from "constants/testIds";
 
 type NestedCommentsPropsType = {
   commentId: number;
@@ -13,7 +14,10 @@ export const NestedComments: FC<NestedCommentsPropsType> = ({ commentId }) => {
     nestedCommentsGetById(state, commentId)
   );
   return (
-    <Box width="100%">
+    <Box
+      width="100%"
+      data-testid={TEST_ID.COMMENTS.NESTED_COMMENTS_ROOT(commentId)}
+    >
       {nestedComments.map((comment) => (
         <NestedCommentItem key={comment.id} comment={comment} />
       ))}

@@ -13,6 +13,7 @@ import {
 import { CommentType } from "types/commonTypes";
 import { NestedComments } from "./components/NestedComments";
 import { styles } from "./styles";
+import { TEST_ID } from "constants/testIds";
 
 type WrapperPropsType = {
   comment: CommentType;
@@ -73,6 +74,9 @@ export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
                 <CustomButton
                   startIcon={<ArrowUpwardIcon />}
                   onClick={() => deleteCommentIdFromNestedList(comment.id)}
+                  data-testid={TEST_ID.COMMENTS.HIDE_NESTED_COMMENTS_BUTTON(
+                    comment.id
+                  )}
                 >
                   Hide Nested Comments
                 </CustomButton>
@@ -84,6 +88,9 @@ export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
                 <CustomButton
                   startIcon={<ArrowDownwardIcon />}
                   onClick={() => loadNestedComments(comment.kids ?? [])}
+                  data-testid={TEST_ID.COMMENTS.SHOW_NESTED_COMMENS_BUTTON(
+                    comment.id
+                  )}
                 >
                   Show {comment.kids.length} nested comments
                 </CustomButton>
