@@ -6,7 +6,7 @@ import { TestRender } from "routes/testRender";
 
 describe("START_PAGE_TEST", () => {
   test("page elements are rendered", async () => {
-    render(<TestRender baseRoute={SCREEN_ROUTES.START_PAGE} />);
+    render(<TestRender baseRoutes={[SCREEN_ROUTES.START_PAGE]} />);
     const pageRoot = await screen.findByTestId(
       TEST_ID.START_PAGE.START_PAGE_ROOT
     );
@@ -21,7 +21,7 @@ describe("START_PAGE_TEST", () => {
     expect(goToNewsButton).toBeInTheDocument();
   });
   test("navigate to news", async () => {
-    render(<TestRender baseRoute={SCREEN_ROUTES.START_PAGE} />);
+    render(<TestRender baseRoutes={[SCREEN_ROUTES.START_PAGE]} />);
     const button = await screen.findByTestId(
       TEST_ID.START_PAGE.GO_TO_NEWS_BUTTON
     );
@@ -32,7 +32,7 @@ describe("START_PAGE_TEST", () => {
   });
   test("matches snapshot", () => {
     const { asFragment } = render(
-      <TestRender baseRoute={SCREEN_ROUTES.START_PAGE} />
+      <TestRender baseRoutes={[SCREEN_ROUTES.START_PAGE]} />
     );
     expect(asFragment).toMatchSnapshot();
   });
