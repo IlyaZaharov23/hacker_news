@@ -6,13 +6,13 @@ import { store } from "store";
 import { ProgressLoader } from "components/ProgressLoader";
 
 type TestRenderType = {
-  baseRoute: string;
+  baseRoutes: string[];
 };
 
-export const TestRender: FC<TestRenderType> = ({ baseRoute }) => {
+export const TestRender: FC<TestRenderType> = ({ baseRoutes }) => {
   return (
     <Provider store={store}>
-      <MemoryRouter initialEntries={[baseRoute]}>
+      <MemoryRouter initialEntries={baseRoutes}>
         <Suspense fallback={<ProgressLoader fullScreen />}>
           <RenderRoutes />
         </Suspense>

@@ -7,8 +7,9 @@ import {
   clearAllStoryComments,
 } from "store/hackerNews/actions";
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
-import { styles } from "./styles";
 import { useAppDispatch, useAppSelector } from "store/hooks";
+import { TEST_ID } from "constants/testIds";
+import { styles } from "./styles";
 import { menuItems } from "./constants/menuConfig";
 
 type MenuPropsType = {
@@ -39,6 +40,7 @@ export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
       anchorEl={switcherOpen}
       onClose={closeSwitcher}
       disableAutoFocusItem
+      data-testid={TEST_ID.NEWS_TYPE_SWITCHER.SWITCHER_ROOT}
     >
       {menuItems.map((item) => (
         <MenuItem
@@ -48,6 +50,7 @@ export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
             ...styles.menuItem,
             ...(isItemActive(item.value) && styles.activeMenuItem),
           }}
+          data-testid={TEST_ID.NEWS_TYPE_SWITCHER.SWITCHER_ITEM(item.value)}
         >
           {item.icon(isItemActive(item.value) && styles.activeIcon)}
           <Typography

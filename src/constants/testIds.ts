@@ -21,4 +21,8 @@ export const TEST_ID = {
   },
   NEWS_SKELETON: "news-skeleton",
   NEWS_PLACEHOLDER: "news-placeholder",
+  NEWS_TYPE_SWITCHER: {
+    SWITCHER_ROOT: "switcher-root",
+    SWITCHER_ITEM: (type: string) => `switcher-item-${type}`,
+  },
 };
