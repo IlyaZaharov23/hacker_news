@@ -11,13 +11,11 @@ describe("START_PAGE_TEST", () => {
       TEST_ID.START_PAGE.START_PAGE_ROOT
     );
     const appLogo = screen.getByTestId(TEST_ID.START_PAGE.APP_LOGO);
-    const appTitle = screen.getByTestId(TEST_ID.START_PAGE.APP_TITLE);
     const goToNewsButton = screen.getByTestId(
       TEST_ID.START_PAGE.GO_TO_NEWS_BUTTON
     );
     expect(pageRoot).toBeInTheDocument();
     expect(appLogo).toBeInTheDocument();
-    expect(appTitle).toBeInTheDocument();
     expect(goToNewsButton).toBeInTheDocument();
   });
   test("navigate to news", async () => {

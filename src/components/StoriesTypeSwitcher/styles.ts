@@ -1,24 +1,27 @@
 import {
-  bluePrimary,
   darkGray,
-  blueBack,
   white,
-  hoverGray,
+  lightBrown,
+  orangePrimary,
+  lightGray,
 } from "constants/colors";
 
 export const styles = {
-  menuItem: {
+  menuItem: (
+    menuWidth: number | undefined,
+    fullWidth: boolean | undefined
+  ) => ({
     backgroundColor: white,
-    width: "150px",
+    width: fullWidth ? menuWidth : "150px",
     color: darkGray,
     "&:hover": {
       color: darkGray,
-      backgroundColor: hoverGray,
+      backgroundColor: lightGray,
     },
-  },
+  }),
   activeMenuItem: {
-    color: bluePrimary,
-    backgroundColor: blueBack,
+    color: orangePrimary,
+    backgroundColor: lightBrown,
   },
   title: {
     fontSize: "0.875rem",
@@ -27,9 +30,9 @@ export const styles = {
   },
   activeTitle: {
     fontWeight: "600",
-    color: 'inherit',
+    color: "inherit",
   },
   activeIcon: {
-    color: 'inherit',
+    color: "inherit",
   },
 };

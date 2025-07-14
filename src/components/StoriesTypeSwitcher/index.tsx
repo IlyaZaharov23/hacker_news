@@ -11,17 +11,20 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { TEST_ID } from "constants/testIds";
 import { styles } from "./styles";
 import { menuItems } from "./constants/menuConfig";
+import { SWITCHER_BUTTON_WIDTH } from "components/StartPage/styles";
 
 type MenuPropsType = {
   open: boolean;
   switcherOpen: HTMLElement | null;
   closeSwitcher: () => void;
+  fullWidth?: boolean;
 };
 
 export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
   open,
   switcherOpen,
   closeSwitcher,
+  fullWidth,
 }) => {
   const storiesShowedType = useAppSelector(getShowedStoryType);
   const dispatch = useAppDispatch();
@@ -40,6 +43,21 @@ export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
       anchorEl={switcherOpen}
       onClose={closeSwitcher}
       disableAutoFocusItem
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "left",
+      }}
+      PaperProps={{
+        style: {
+          width: fullWidth ? `${SWITCHER_BUTTON_WIDTH}px` : "auto",
+          minWidth: fullWidth ? "unset" : "150px",
+          marginTop: "0.25rem",
+        },
+      }}
       data-testid={TEST_ID.NEWS_TYPE_SWITCHER.SWITCHER_ROOT}
     >
       {menuItems.map((item) => (
@@ -47,7 +65,7 @@ export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
           key={item.value}
           onClick={() => changeStoriesType(item.value)}
           sx={{
-            ...styles.menuItem,
+            ...styles.menuItem(SWITCHER_BUTTON_WIDTH, fullWidth),
             ...(isItemActive(item.value) && styles.activeMenuItem),
           }}
           data-testid={TEST_ID.NEWS_TYPE_SWITCHER.SWITCHER_ITEM(item.value)}

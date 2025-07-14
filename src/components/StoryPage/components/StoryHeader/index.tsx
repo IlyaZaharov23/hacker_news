@@ -69,7 +69,7 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
                   : ""}
               </Typography>
             </Box>
-            <CustomDivider position={DIVIDER_TYPE.VERTICAL} />
+            <CustomDivider position={DIVIDER_TYPE.VERTICAL} height={24}/>
             <Box sx={styles.categoryWrapper}>
               <Typography sx={{ ...styles.info, ...styles.category }}>
                 Author:

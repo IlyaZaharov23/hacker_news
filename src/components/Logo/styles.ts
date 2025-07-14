@@ -1,8 +1,6 @@
-import { black } from "constants/colors";
-
 export const styles = {
-  imgWrapper: (size: number) => ({
-    backgroundColor: black,
+  imgWrapper: (size: number, color: string) => ({
+    backgroundColor: color,
     height: `${size}px`,
   }),
 };

@@ -7,9 +7,9 @@ export const styles = {
     height: "1px",
     width: `100%`,
   },
-  vertical: {
-    height: "24px",
+  vertical: (height: number | undefined) => ({
+    height: `${height}px`,
     width: "2px",
     backgroundColor: darkGray,
-  },
+  }),
 };

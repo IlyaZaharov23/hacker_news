@@ -8,8 +8,9 @@ import { Logo } from "components/Logo";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TEST_ID } from "constants/testIds";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
-import { StoriesTypeSwitcher } from "./components/StoriesTypeSwitcher";
+import { StoriesTypeSwitcher } from "components/StoriesTypeSwitcher";
 import { styles } from "./styles";
+import { black } from "constants/colors";
 
 type HeaderPropsType = {
   showBack?: boolean;
@@ -56,7 +57,7 @@ export const Header: FC<HeaderPropsType> = ({
   return (
     <Box sx={styles.commonWrapper} data-testid={TEST_ID.HEADER.HEADER_ROOT}>
       <Box
-        sx={{ ...styles.button, visibility: showBack ? "visible" : "hidden" }}
+        sx={{ ...styles.button(), visibility: showBack ? "visible" : "hidden" }}
         onClick={handleGoBack}
         data-testid={TEST_ID.HEADER.BACK_BUTTON}
       >
@@ -70,13 +71,15 @@ export const Header: FC<HeaderPropsType> = ({
         data-testid={TEST_ID.HEADER.APP_LOGO}
         onClick={navigateToStartPage}
       >
-        <Logo size={32} />
+        <Logo size={32} color={black} />
         <Typography sx={styles.title}>Hacker News</Typography>
       </Box>
       <Box sx={styles.rightButtonWrapper}>
         <Box
           sx={{
-            ...(isLoading ? styles.disabledButton : styles.button),
+            ...(isLoading
+              ? styles.disabledButton
+              : styles.button()),
             visibility: showUpdate ? "visible" : "hidden",
           }}
           onClick={refreshNews}
@@ -86,7 +89,9 @@ export const Header: FC<HeaderPropsType> = ({
         </Box>
         <Box
           sx={{
-            ...(isLoading ? styles.disabledButton : styles.button),
+            ...(isLoading
+              ? styles.disabledButton
+              : styles.button(isSwitcherOpen)),
             visibility: showMenu ? "visible" : "hidden",
           }}
           onClick={openSwitcher}

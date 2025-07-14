@@ -1,4 +1,9 @@
-import { black, hoverGray, orangePrimary, white } from "constants/colors";
+import {
+  hoverGray,
+  lightBrown,
+  orangePrimary,
+  darkGray,
+} from "constants/colors";
 
 const HEADER_PADDING_X = 24;
 const HEADER_PADDING_Y = 14;
@@ -25,17 +30,17 @@ export const styles = {
     color: "inherit",
     marginLeft: "1rem",
   },
-  button: {
+  button: (isMenuOpen?: boolean) => ({
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
-    color: black,
+    color: isMenuOpen ? darkGray : lightBrown,
     "&:hover": {
-      color: white,
+      color: darkGray,
     },
-    "&:active": {
-      color: black,
-    },
+  }),
+  activeButton: {
+    color: darkGray,
   },
   disabledButton: {
     display: "flex",
@@ -56,9 +61,9 @@ export const styles = {
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
-    color: black,
+    color: lightBrown,
     "&:hover": {
-      color: white,
+      color: darkGray,
     },
   },
   disabledLogoWrapper: {

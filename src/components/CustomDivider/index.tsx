@@ -5,13 +5,16 @@ import { styles } from "./styles";
 
 type DividerPropsType = {
   position: string;
+  height?: number;
 };
 
-export const CustomDivider: FC<DividerPropsType> = ({ position }) => {
+export const CustomDivider: FC<DividerPropsType> = ({ position, height }) => {
   return (
     <Box
       sx={
-        position === DIVIDER_TYPE.VERTICAL ? styles.vertical : styles.horizontal
+        position === DIVIDER_TYPE.VERTICAL
+          ? styles.vertical(height)
+          : styles.horizontal
       }
     />
   );
