@@ -2,10 +2,14 @@ import { Box, Skeleton } from "@mui/material";
 import { CustomDivider } from "components/CustomDivider";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { styles } from "./styles";
+import { TEST_ID } from "constants/testIds";
 
 export const CommentsSkeleton = () => {
   return (
-    <Box sx={styles.commonWrapper}>
+    <Box
+      sx={styles.commonWrapper}
+      data-testid={TEST_ID.COMMENTS.COMMENTS_SKELETON}
+    >
       <Box sx={styles.itemWrapper}>
         <Skeleton width="100%" height={21} />
         <CustomDivider position={DIVIDER_TYPE.HORIZONTAL} />

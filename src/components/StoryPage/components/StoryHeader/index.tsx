@@ -30,7 +30,7 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
   return (
     <Box
       sx={styles.storyWrapper}
-      data-testid={TEST_ID.STORY_PAGE.STORY_HEADER(activeStory?.id)}
+      data-testid={TEST_ID.STORY_PAGE.STORY_HEADER(Number(params.id))}
     >
       {isLoading ? (
         <HeaderSkeleton />
@@ -48,6 +48,9 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
             <OpenInNewIcon
               onClick={handleRedirectToStory}
               sx={styles.redirectIcon}
+              data-testid={TEST_ID.STORY_PAGE.STORY_HEADER_REDIRECT_TO_STORY(
+                activeStory?.id
+              )}
             />
           </Box>
           <Box sx={styles.bottomWrapper}>

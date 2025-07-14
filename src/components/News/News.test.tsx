@@ -118,6 +118,8 @@ describe("News page test", () => {
       )
     ).toBeInTheDocument();
   });
+
+  // TODO: MOVE TO HEADER COMPONENT TESTS
   test("back button click", async () => {
     jest.spyOn(hooks, "useAppSelector").mockImplementation((selector) => {
       if (selector === newStoriesGet) {
