@@ -118,23 +118,6 @@ describe("News page test", () => {
       )
     ).toBeInTheDocument();
   });
-  test("back button click", async () => {
-    jest.spyOn(hooks, "useAppSelector").mockImplementation((selector) => {
-      if (selector === newStoriesGet) {
-        return [TEST_STORY_1, TEST_STORY_2];
-      }
-    });
-    render(
-      <TestRender
-        baseRoutes={[SCREEN_ROUTES.START_PAGE, SCREEN_ROUTES.NEWS_LIST]}
-      />
-    );
-    const backButton = await screen.findByTestId(TEST_ID.HEADER.BACK_BUTTON);
-    userEvent.click(backButton);
-    expect(
-      await screen.findByTestId(TEST_ID.START_PAGE.START_PAGE_ROOT)
-    ).toBeInTheDocument();
-  });
   test("menu button click", async () => {
     jest.spyOn(hooks, "useAppSelector").mockImplementation((selector) => {
       if (selector === newStoriesGet) {

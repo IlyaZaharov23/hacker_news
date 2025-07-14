@@ -65,7 +65,6 @@ function News() {
       <Header
         refreshNews={showAllNews}
         isLoading={isLoading}
-        showBack
         showUpdate
         showMenu
       />
