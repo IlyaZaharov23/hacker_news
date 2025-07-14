@@ -6,13 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { SCREEN_ROUTES } from "routes/constants";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={SCREEN_ROUTES.START_PAGE}>
       <React.StrictMode>
         <App />
       </React.StrictMode>

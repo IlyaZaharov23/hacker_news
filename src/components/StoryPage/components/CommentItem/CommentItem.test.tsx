@@ -36,7 +36,7 @@ describe("Comment Item test", () => {
       screen.queryByTestId(
         TEST_ID.COMMENTS.SHOW_NESTED_COMMENS_BUTTON(TEST_COMMENT_1.id)
       )
-    ).toBeNull();
+    ).not.toBeInTheDocument();
     const hideNestedCommentsButton = await screen.findByTestId(
       TEST_ID.COMMENTS.HIDE_NESTED_COMMENTS_BUTTON(TEST_COMMENT_1.id)
     );
@@ -50,11 +50,11 @@ describe("Comment Item test", () => {
       screen.queryByTestId(
         TEST_ID.COMMENTS.HIDE_NESTED_COMMENTS_BUTTON(TEST_COMMENT_1.id)
       )
-    ).toBeNull();
+    ).not.toBeInTheDocument();
     expect(
       screen.queryByTestId(
         TEST_ID.COMMENTS.NESTED_COMMENTS_ROOT(TEST_COMMENT_1.id)
       )
-    ).toBeNull();
+    ).not.toBeInTheDocument();
   });
 });
