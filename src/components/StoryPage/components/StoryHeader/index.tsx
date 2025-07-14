@@ -30,14 +30,21 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
   return (
     <Box
       sx={styles.storyWrapper}
-      data-testid={TEST_ID.STORY_PAGE.STORY_HEADER(Number(params.id))}
+      data-testid={TEST_ID.STORY_PAGE.STORY_HEADER(activeStory?.id)}
     >
       {isLoading ? (
         <HeaderSkeleton />
       ) : (
         <>
           <Box sx={styles.topWrapper}>
-            <Typography sx={styles.title}>{activeStory?.title}</Typography>
+            <Typography
+              sx={styles.title}
+              data-testid={TEST_ID.STORY_PAGE.STORY_HEADER_TITLE(
+                activeStory?.id
+              )}
+            >
+              {activeStory?.title}
+            </Typography>
             <OpenInNewIcon
               onClick={handleRedirectToStory}
               sx={styles.redirectIcon}
@@ -48,7 +55,12 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
               <Typography sx={{ ...styles.info, ...styles.category }}>
                 Published:
               </Typography>
-              <Typography sx={styles.info}>
+              <Typography
+                sx={styles.info}
+                data-testid={TEST_ID.STORY_PAGE.STORY_HEADER_PUBLISHED(
+                  activeStory?.id
+                )}
+              >
                 {activeStory?.time
                   ? DateUtil.formatTimeAgo(activeStory?.time)
                   : ""}
@@ -59,7 +71,14 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
               <Typography sx={{ ...styles.info, ...styles.category }}>
                 Author:
               </Typography>
-              <Typography sx={styles.info}>{activeStory?.by}</Typography>
+              <Typography
+                sx={styles.info}
+                data-testid={TEST_ID.STORY_PAGE.STORY_HEADER_AUTHOR(
+                  activeStory?.id
+                )}
+              >
+                {activeStory?.by}
+              </Typography>
             </Box>
           </Box>
         </>

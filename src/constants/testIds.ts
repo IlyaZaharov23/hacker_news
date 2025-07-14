@@ -12,6 +12,12 @@ export const TEST_ID = {
   STORY_PAGE: {
     STORY_PAGE_ROOT: (id: number | undefined) => `story-page-root-${id}`,
     STORY_HEADER: (id: number | undefined) => `story-header-${id}`,
+    STORY_HEADER_SKELETON: `story-header-skeleton`,
+    STORY_HEADER_TITLE: (id: number | undefined) => `story-header-title-${id}`,
+    STORY_HEADER_AUTHOR: (id: number | undefined) =>
+      `story-header-author-${id}`,
+    STORY_HEADER_PUBLISHED: (id: number | undefined) =>
+      `story-header-published-${id}`,
   },
   COMMENTS: {
     COMMENTS_ROOT: (id: number | undefined) => `comments-root-${id}`,
