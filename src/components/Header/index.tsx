@@ -63,7 +63,10 @@ export const Header: FC<HeaderPropsType> = ({
         <ArrowBackIosNewIcon sx={styles.icon} />
       </Box>
       <Box
-        sx={styles.logoWrapper}
+        sx={{
+          ...styles.logoWrapper,
+          ...(isLoading && styles.disabledLogoWrapper),
+        }}
         data-testid={TEST_ID.HEADER.APP_LOGO}
         onClick={navigateToStartPage}
       >

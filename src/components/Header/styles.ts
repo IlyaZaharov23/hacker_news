@@ -61,4 +61,11 @@ export const styles = {
       color: white,
     },
   },
+  disabledLogoWrapper: {
+    cursor: "default",
+    color: hoverGray,
+    "&:hover": {
+      color: hoverGray,
+    },
+  },
 };
