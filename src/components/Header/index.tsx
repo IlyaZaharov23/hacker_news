@@ -5,20 +5,13 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { Logo } from "components/Logo";
+import { StoriesTypeSwitcher } from "components/StoriesTypeSwitcher";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TEST_ID } from "constants/testIds";
-import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
-import { StoriesTypeSwitcher } from "components/StoriesTypeSwitcher";
-import { styles } from "./styles";
 import { black } from "constants/colors";
-
-type HeaderPropsType = {
-  showBack?: boolean;
-  showUpdate?: boolean;
-  showMenu?: boolean;
-  isLoading?: boolean;
-  refreshNews?: () => void;
-};
+import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
+import { HeaderPropsType } from "./types";
+import { styles } from "./styles";
 
 export const Header: FC<HeaderPropsType> = ({
   showBack,
@@ -77,9 +70,7 @@ export const Header: FC<HeaderPropsType> = ({
       <Box sx={styles.rightButtonWrapper}>
         <Box
           sx={{
-            ...(isLoading
-              ? styles.disabledButton
-              : styles.button()),
+            ...(isLoading ? styles.disabledButton : styles.button()),
             visibility: showUpdate ? "visible" : "hidden",
           }}
           onClick={refreshNews}

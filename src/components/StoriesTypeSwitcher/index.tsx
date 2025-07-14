@@ -9,16 +9,10 @@ import {
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { TEST_ID } from "constants/testIds";
-import { styles } from "./styles";
-import { menuItems } from "./constants/menuConfig";
 import { SWITCHER_BUTTON_WIDTH } from "components/StartPage/styles";
-
-type MenuPropsType = {
-  open: boolean;
-  switcherOpen: HTMLElement | null;
-  closeSwitcher: () => void;
-  fullWidth?: boolean;
-};
+import { MenuPropsType } from "./types";
+import { menuItems } from "./constants/menuConfig";
+import { styles } from "./styles";
 
 export const StoriesTypeSwitcher: FC<MenuPropsType> = ({
   open,

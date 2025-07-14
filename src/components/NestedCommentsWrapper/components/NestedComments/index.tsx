@@ -2,12 +2,9 @@ import { FC } from "react";
 import { Box } from "@mui/material";
 import { useAppSelector } from "store/hooks";
 import { nestedCommentsGetById } from "store/hackerNews/selectors/nestedCommentsGetById";
-import { NestedCommentItem } from "../NestedCommentItem";
 import { TEST_ID } from "constants/testIds";
-
-type NestedCommentsPropsType = {
-  commentId: number;
-};
+import { NestedCommentsPropsType } from "components/NestedCommentsWrapper/types";
+import { NestedCommentItem } from "../NestedCommentItem";
 
 export const NestedComments: FC<NestedCommentsPropsType> = ({ commentId }) => {
   const nestedComments = useAppSelector((state) =>

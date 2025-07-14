@@ -1,13 +1,8 @@
 import { FC } from "react";
 import { Box } from "@mui/material";
 import mainLogo from "assets/mainLogo.svg";
+import { LogoPropsType } from "./types";
 import { styles } from "./styles";
-
-type LogoPropsType = {
-  size: number;
-  testId?: string;
-  color: string;
-};
 
 export const Logo: FC<LogoPropsType> = ({ size, testId, color }) => {
   return (

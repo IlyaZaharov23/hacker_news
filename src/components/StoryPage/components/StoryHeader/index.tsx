@@ -11,13 +11,10 @@ import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { TEST_ID } from "constants/testIds";
 
 import { HeaderSkeleton } from "../HeaderSkeleton";
+import { StoryPageHeaderPropsType } from "components/StoryPage/types";
 import { styles } from "../../styles";
 
-type HeaderPropsType = {
-  isLoading: boolean;
-};
-
-export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
+export const StoryHeader: FC<StoryPageHeaderPropsType> = ({ isLoading }) => {
   const params = useParams();
 
   const activeStory = useAppSelector((state) =>
@@ -69,7 +66,7 @@ export const StoryHeader: FC<HeaderPropsType> = ({ isLoading }) => {
                   : ""}
               </Typography>
             </Box>
-            <CustomDivider position={DIVIDER_TYPE.VERTICAL} height={24}/>
+            <CustomDivider position={DIVIDER_TYPE.VERTICAL} height={24} />
             <Box sx={styles.categoryWrapper}>
               <Typography sx={{ ...styles.info, ...styles.category }}>
                 Author:

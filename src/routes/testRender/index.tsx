@@ -4,10 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { RenderRoutes } from "routes/renderRoutes";
 import { store } from "store";
 import { ProgressLoader } from "components/ProgressLoader";
-
-type TestRenderType = {
-  baseRoutes: string[];
-};
+import { TestRenderType } from "routes/types";
 
 export const TestRender: FC<TestRenderType> = ({ baseRoutes }) => {
   return (

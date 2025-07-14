@@ -2,19 +2,15 @@ import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
 import { CustomDivider } from "components/CustomDivider";
-import { CommentType } from "types/commonTypes";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
 
+import { CommentItemPropsType } from "components/StoryPage/types";
 import { styles } from "./styles";
 import { TEST_ID } from "constants/testIds";
 
-type PropsType = {
-  comment: CommentType;
-};
-
-export const CommentItem: FC<PropsType> = ({ comment }) => {
+export const CommentItem: FC<CommentItemPropsType> = ({ comment }) => {
   return (
     <Box
       sx={styles.commentWrapper}

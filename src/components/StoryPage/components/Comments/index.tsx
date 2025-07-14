@@ -3,17 +3,13 @@ import { Box, Typography } from "@mui/material";
 
 import { useAppSelector } from "store/hooks";
 import { storyCommentsGetById } from "store/hackerNews/selectors/storyCommentsGetById";
+import { TEST_ID } from "constants/testIds";
 
 import { CommentItem } from "../CommentItem";
 import { CommentsSkeleton } from "../CommentsSkeleton";
 import { CommentsPlaceholder } from "../CommentsPlaceholder";
+import { CommentsPropsType } from "components/StoryPage/types";
 import { styles } from "./styles";
-import { TEST_ID } from "constants/testIds";
-
-type CommentsPropsType = {
-  storyId: number | undefined;
-  isLoading: boolean;
-};
 
 export const Comments: FC<CommentsPropsType> = ({ storyId, isLoading }) => {
   const comments = useAppSelector((state) =>

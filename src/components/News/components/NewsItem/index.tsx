@@ -3,16 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { CustomDivider } from "components/CustomDivider";
 import { SCREEN_ROUTES } from "routes/constants";
-import { StoryType } from "types/commonTypes";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
-import { styles } from "./styles";
 import { TEST_ID } from "constants/testIds";
-
-type NewsItemPropsType = {
-  item: StoryType;
-};
+import { NewsItemPropsType } from "components/News/types";
+import { styles } from "./styles";
 
 export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {
   const navigate = useNavigate();
