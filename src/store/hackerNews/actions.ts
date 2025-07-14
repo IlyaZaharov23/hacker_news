@@ -2,6 +2,7 @@ import { createAppAsyncThunk } from "../hooks";
 import { API_ENDPOINTS } from "config/api";
 import { ApiWrapper } from "services";
 import { hackerNewsSlice } from "./reducers/reducers";
+import axios from "axios";
 
 export const {
   setNewStories,
@@ -12,7 +13,7 @@ export const {
   addNestedCommentsById,
   removeNestedCommentsById,
   clearAllNestedComments,
-  setShowedStoryType
+  setShowedStoryType,
 } = hackerNewsSlice.actions;
 
 export const getStoryIds = createAppAsyncThunk(
@@ -44,6 +45,18 @@ export const getCommentById = createAppAsyncThunk(
   async (id: number) => {
     try {
       const resp = await ApiWrapper.get(API_ENDPOINTS.COMMENT(id));
+      return resp.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const getRandomQuote = createAppAsyncThunk(
+  "hackerNews/getRandomQuote",
+  async () => {
+    try {
+      const resp = await ApiWrapper.get("https://stoic-quotes.com/api/quote");
       return resp.data;
     } catch (error) {
       console.log(error);
