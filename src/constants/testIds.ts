@@ -18,6 +18,8 @@ export const TEST_ID = {
       `story-header-author-${id}`,
     STORY_HEADER_PUBLISHED: (id: number | undefined) =>
       `story-header-published-${id}`,
+    STORY_HEADER_REDIRECT_TO_STORY: (id: number | undefined) =>
+      `story-header-redirect-to-story-${id}`,
   },
   COMMENTS: {
     COMMENTS_ROOT: (id: number | undefined) => `comments-root-${id}`,
@@ -28,6 +30,8 @@ export const TEST_ID = {
       `hide-nested-comments-button-${id}`,
     NESTED_COMMENTS_ROOT: (id: number | undefined) =>
       `nested-comments-root-${id}`,
+    COMMENTS_SKELETON: "comments-skeleton",
+    COMMENTS_PLACEHOLDER: "comments-placeholder",
   },
   HEADER: {
     HEADER_ROOT: "header-root",

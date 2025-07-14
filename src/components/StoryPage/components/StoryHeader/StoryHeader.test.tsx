@@ -8,7 +8,7 @@ describe("Story Header component test", () => {
   beforeAll(() => {
     jest
       .spyOn(hooks, "useAppSelector")
-      .mockImplementation((selector) => TEST_STORY_1);
+      .mockImplementation(() => TEST_STORY_1);
   });
   test("StoryHeader skeleton render", async () => {
     render(<StoryHeader isLoading={true} />);
