@@ -5,7 +5,7 @@ import {
   HackerNewsStateType,
   StoryPayloadType,
   CommentsPayloadType,
-} from "./reducerTypes";
+} from "./types";
 
 export const initialState: HackerNewsStateType = {
   newStories: [],

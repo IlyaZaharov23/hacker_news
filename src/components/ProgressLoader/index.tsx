@@ -1,12 +1,7 @@
 import { FC } from "react";
 import { Box, CircularProgress } from "@mui/material";
+import { LoaderTypeProps } from "./types";
 import { styles } from "./styles";
-
-type LoaderTypeProps = {
-  fullScreen?: boolean;
-  centerInParent?: boolean;
-  size?: number;
-};
 
 export const ProgressLoader: FC<LoaderTypeProps> = ({
   fullScreen = false,

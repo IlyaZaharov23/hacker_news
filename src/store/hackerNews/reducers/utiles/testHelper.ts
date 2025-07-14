@@ -1,6 +1,6 @@
 import { UnknownAction } from "@reduxjs/toolkit";
-import { hackerNewsSlice } from "./reducers";
-import { HackerNewsStateType } from "./reducerTypes";
+import { hackerNewsSlice } from "../reducers";
+import { HackerNewsStateType } from "../types";
 
 const hackerNewsReducer = hackerNewsSlice.reducer;
 

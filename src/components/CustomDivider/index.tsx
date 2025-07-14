@@ -1,12 +1,8 @@
 import { FC } from "react";
 import { Box } from "@mui/material";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
+import { DividerPropsType } from "./types";
 import { styles } from "./styles";
-
-type DividerPropsType = {
-  position: string;
-  height?: number;
-};
 
 export const CustomDivider: FC<DividerPropsType> = ({ position, height }) => {
   return (

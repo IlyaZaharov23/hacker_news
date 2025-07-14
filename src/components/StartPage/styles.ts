@@ -33,6 +33,7 @@ export const styles = {
     flexDirection: "column",
     marginTop: "4rem",
     maxWidth: "50vw",
+    height: "48px",
   },
   contentWrapper: {
     display: "flex",

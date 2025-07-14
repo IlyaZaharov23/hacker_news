@@ -18,7 +18,7 @@ import {
   setShowedStoryType,
 } from "store/hackerNews/actions";
 import { initialState } from "./reducers";
-import { generateTestCase } from "./testHelper";
+import { generateTestCase } from "./utiles/testHelper";
 import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
 
 describe("HACKER_NEWS_REDUCER_TEST", () => {

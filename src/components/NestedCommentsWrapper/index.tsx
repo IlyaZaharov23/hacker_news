@@ -10,14 +10,10 @@ import {
   addNestedCommentsById,
   removeNestedCommentsById,
 } from "store/hackerNews/actions";
-import { CommentType } from "types/commonTypes";
+import { TEST_ID } from "constants/testIds";
+import { WrapperPropsType } from "./types";
 import { NestedComments } from "./components/NestedComments";
 import { styles } from "./styles";
-import { TEST_ID } from "constants/testIds";
-
-type WrapperPropsType = {
-  comment: CommentType;
-};
 
 export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
   const dispatch = useAppDispatch();
