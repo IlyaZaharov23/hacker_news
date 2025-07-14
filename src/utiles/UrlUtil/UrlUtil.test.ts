@@ -12,7 +12,7 @@ describe("URL_UTIL_GENERATE_ROUTE_TEST", () => {
       UrlUtil.generatePathWithId(SCREEN_ROUTES.NEWS_ITEM, -5)
     ).toThrow("ID cannot be negative.");
   });
-  test("negative ID paste", () => {
+  test("zero ID paste", () => {
     expect(() =>
       UrlUtil.generatePathWithId(SCREEN_ROUTES.NEWS_ITEM, 0)
     ).toThrow("ID cannot be 0.");

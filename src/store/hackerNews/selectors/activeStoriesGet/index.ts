@@ -1,4 +1,5 @@
 import { RootState } from "store";
+import { produce } from "immer";
 
 export const activeStoriesGet = (state: RootState) =>
-  state.hackerNews.activeStories;
+  produce(state.hackerNews.activeStories, (draft) => draft);
