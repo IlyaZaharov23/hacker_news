@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import mainLogo from "assets/mainLogo.svg";
+import { Logo } from "components/Logo";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TEST_ID } from "constants/testIds";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
@@ -12,7 +12,7 @@ import { StoriesTypeSwitcher } from "./components/StoriesTypeSwitcher";
 import { styles } from "./styles";
 
 type HeaderPropsType = {
-  showBack: boolean;
+  showBack?: boolean;
   showUpdate?: boolean;
   showMenu?: boolean;
   isLoading?: boolean;
@@ -43,11 +43,16 @@ export const Header: FC<HeaderPropsType> = ({
 
   const handleGoBack = () => {
     if (!UrlUtil.getIdFromUrl(params.id)) {
-      navigate(-1);
+      navigate(SCREEN_ROUTES.START_PAGE);
     } else {
       navigate(SCREEN_ROUTES.NEWS_LIST, { state: { fromBack: true } });
     }
   };
+
+  const navigateToStartPage = () => {
+    navigate(SCREEN_ROUTES.START_PAGE);
+  };
+
   return (
     <Box sx={styles.commonWrapper} data-testid={TEST_ID.HEADER.HEADER_ROOT}>
       <Box
@@ -57,8 +62,12 @@ export const Header: FC<HeaderPropsType> = ({
       >
         <ArrowBackIosNewIcon sx={styles.icon} />
       </Box>
-      <Box sx={styles.logoWrapper} data-testid={TEST_ID.HEADER.APP_LOGO}>
-        <img src={mainLogo} alt="logo" width={32} />
+      <Box
+        sx={styles.logoWrapper}
+        data-testid={TEST_ID.HEADER.APP_LOGO}
+        onClick={navigateToStartPage}
+      >
+        <Logo size={32} />
         <Typography sx={styles.title}>Hacker News</Typography>
       </Box>
       <Box sx={styles.rightButtonWrapper}>

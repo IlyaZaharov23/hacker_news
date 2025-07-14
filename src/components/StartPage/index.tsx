@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import mainLogo from "assets/mainLogo.svg";
+import { Logo } from "components/Logo";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TEST_ID } from "constants/testIds";
 import { styles } from "./styles";
@@ -15,9 +15,7 @@ function StartPage() {
       sx={styles.pageWrapper}
       data-testid={TEST_ID.START_PAGE.START_PAGE_ROOT}
     >
-      <Box sx={styles.imgWrapper} data-testid={TEST_ID.START_PAGE.APP_LOGO}>
-        <img src={mainLogo} alt="logo" width={128} height={128} />
-      </Box>
+      <Logo size={128} testId={TEST_ID.START_PAGE.APP_LOGO} />
       <Typography sx={styles.title} data-testid={TEST_ID.START_PAGE.APP_TITLE}>
         Welcome to Hacker News
       </Typography>

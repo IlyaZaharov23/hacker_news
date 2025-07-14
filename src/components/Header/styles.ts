@@ -1,4 +1,4 @@
-import { black, hoverGray, orangePrimary, white, hoverBlue } from "constants/colors";
+import { black, hoverGray, orangePrimary, white } from "constants/colors";
 
 const HEADER_PADDING_X = 24;
 const HEADER_PADDING_Y = 14;
@@ -22,16 +22,16 @@ export const styles = {
   title: {
     fontSize: "1.25rem",
     fontWeight: "600",
-    color: white,
+    color: "inherit",
     marginLeft: "1rem",
   },
   button: {
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
-    color: white,
+    color: black,
     "&:hover": {
-      color: hoverBlue,
+      color: white,
     },
     "&:active": {
       color: black,
@@ -43,9 +43,9 @@ export const styles = {
     color: hoverGray,
   },
   rightButtonWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px'
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
   },
   icon: {
     color: "inherit",
@@ -55,5 +55,10 @@ export const styles = {
   logoWrapper: {
     display: "flex",
     alignItems: "center",
+    cursor: "pointer",
+    color: black,
+    "&:hover": {
+      color: white,
+    },
   },
 };
