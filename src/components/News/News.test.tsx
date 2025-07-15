@@ -15,13 +15,15 @@ import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
 jest.mock("store/hackerNews/actions");
 
 describe("News page test", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
   test("page elements are rendered", async () => {
     render(<TestRender baseRoutes={[SCREEN_ROUTES.NEWS_LIST]} />);
     const newsRoot = await screen.findByTestId(
       TEST_ID.NEWS_PAGE.NEWS_PAGE_ROOT
     );
     const header = await screen.findByTestId(TEST_ID.HEADER.HEADER_ROOT);
-    const backButton = await screen.findByTestId(TEST_ID.HEADER.BACK_BUTTON);
     const updateButton = await screen.findByTestId(
       TEST_ID.HEADER.UPDATE_BUTTON
     );
@@ -29,7 +31,6 @@ describe("News page test", () => {
     const menuButton = await screen.findByTestId(TEST_ID.HEADER.MENU_BUTTON);
     expect(newsRoot).toBeInTheDocument();
     expect(header).toBeInTheDocument();
-    expect(backButton).toBeInTheDocument();
     expect(updateButton).toBeInTheDocument();
     expect(appLogo).toBeInTheDocument();
     expect(menuButton).toBeInTheDocument();
@@ -46,16 +47,49 @@ describe("News page test", () => {
     );
     userEvent.click(updateButton);
     expect(
-      await screen.findByTestId(TEST_ID.NEWS_SKELETON)
+      await screen.findByTestId(TEST_ID.NEWS_PAGE.NEWS_SKELETON)
     ).toBeInTheDocument();
   });
   test("page empty news list test", async () => {
+    (actions.getStoryIds as unknown as jest.Mock).mockImplementation(
+      () => () => ({
+        unwrap: () => Promise.resolve([]),
+      })
+    );
+    (actions.getStoryById as unknown as jest.Mock).mockImplementation(
+      () => () => ({
+        unwrap: () => Promise.resolve(),
+      })
+    );
+    (actions.setNewStories as unknown as jest.Mock).mockImplementation(() => ({
+      type: actions.setNewStories.type,
+      payload: [],
+    }));
     jest.spyOn(hooks, "useAppSelector").mockImplementation((selector) => {
       if (selector === newStoriesGet) return [];
     });
     render(<TestRender baseRoutes={[SCREEN_ROUTES.NEWS_LIST]} />);
     expect(
-      await screen.findByTestId(TEST_ID.NEWS_PLACEHOLDER)
+      await screen.findByTestId(TEST_ID.NEWS_PAGE.NEWS_PLACEHOLDER)
+    ).toBeInTheDocument();
+  });
+  test("page with error test", async () => {
+    (actions.getStoryIds as unknown as jest.Mock).mockImplementation(
+      () => () => ({
+        unwrap: () => Promise.reject(),
+      })
+    );
+    (actions.getStoryById as unknown as jest.Mock).mockImplementation(
+      () => () => ({
+        unwrap: () => Promise.reject(),
+      })
+    );
+    jest.spyOn(hooks, "useAppSelector").mockImplementation((selector) => {
+      if (selector === newStoriesGet) return [];
+    });
+    render(<TestRender baseRoutes={[SCREEN_ROUTES.NEWS_LIST]} />);
+    expect(
+      await screen.findByTestId(TEST_ID.NEWS_PAGE.NEWS_ERROR_PLACEHOLDER)
     ).toBeInTheDocument();
   });
   test("page news with items test", async () => {
@@ -177,7 +211,7 @@ describe("News page test", () => {
       screen.queryByTestId(TEST_ID.NEWS_TYPE_SWITCHER.SWITCHER_ROOT)
     ).not.toBeInTheDocument();
     expect(
-      await screen.findByTestId(TEST_ID.NEWS_SKELETON)
+      await screen.findByTestId(TEST_ID.NEWS_PAGE.NEWS_SKELETON)
     ).toBeInTheDocument();
   });
 });

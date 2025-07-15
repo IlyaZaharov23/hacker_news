@@ -11,7 +11,11 @@ import { CommentsSkeleton } from "../CommentsSkeleton";
 import { CommentsPlaceholder } from "../CommentsPlaceholder";
 import { styles } from "./styles";
 
-export const Comments: FC<CommentsPropsType> = ({ storyId, isLoading }) => {
+export const Comments: FC<CommentsPropsType> = ({
+  storyId,
+  isLoading,
+  hasError,
+}) => {
   const comments = useAppSelector((state) =>
     storyId ? storyCommentsGetById(state, storyId) : []
   );
@@ -26,7 +30,7 @@ export const Comments: FC<CommentsPropsType> = ({ storyId, isLoading }) => {
         {isLoading ? (
           <CommentsSkeleton />
         ) : !comments?.length ? (
-          <CommentsPlaceholder />
+          <CommentsPlaceholder hasError={hasError} />
         ) : (
           comments?.map((comment) => (
             <CommentItem key={comment.id} comment={comment} />

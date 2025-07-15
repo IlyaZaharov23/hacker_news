@@ -36,14 +36,27 @@ describe("Comments component test", () => {
     }));
   });
   test("Comments skeleton render", async () => {
-    render(<Comments isLoading={true} storyId={TEST_STORY_1.id} />);
+    render(
+      <Comments isLoading={true} storyId={TEST_STORY_1.id} hasError={false} />
+    );
     expect(
       await screen.findByTestId(TEST_ID.COMMENTS.COMMENTS_SKELETON)
     ).toBeInTheDocument();
   });
+  test("Comments with error", async () => {
+    jest.spyOn(hooks, "useAppSelector").mockImplementation(() => []);
+    render(
+      <Comments isLoading={false} storyId={TEST_STORY_1.id} hasError={true} />
+    );
+    expect(
+      await screen.findByTestId(TEST_ID.COMMENTS.COMMENTS_ERROR_PLACEHOLDER)
+    ).toBeInTheDocument();
+  });
   test("Empty comments list case", async () => {
     jest.spyOn(hooks, "useAppSelector").mockImplementation(() => []);
-    render(<Comments isLoading={false} storyId={TEST_STORY_1.id} />);
+    render(
+      <Comments isLoading={false} storyId={TEST_STORY_1.id} hasError={false} />
+    );
     expect(
       await screen.findByTestId(TEST_ID.COMMENTS.COMMENTS_PLACEHOLDER)
     ).toBeInTheDocument();
@@ -52,7 +65,9 @@ describe("Comments component test", () => {
     jest
       .spyOn(hooks, "useAppSelector")
       .mockImplementation(() => [TEST_COMMENT_1]);
-    render(<Comments isLoading={false} storyId={TEST_STORY_1.id} />);
+    render(
+      <Comments isLoading={false} storyId={TEST_STORY_1.id} hasError={false} />
+    );
     expect(
       await screen.findByTestId(
         TEST_ID.COMMENTS.COMMENT_ITEM(TEST_COMMENT_1.id)
@@ -60,7 +75,7 @@ describe("Comments component test", () => {
     ).toBeInTheDocument();
     expect(
       await screen.findByTestId(
-        TEST_ID.COMMENTS.SHOW_NESTED_COMMENS_BUTTON(TEST_COMMENT_1.id)
+        TEST_ID.COMMENTS.SHOW_NESTED_COMMENTS_BUTTON(TEST_COMMENT_1.id)
       )
     ).toBeInTheDocument();
   });

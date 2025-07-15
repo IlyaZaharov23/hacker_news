@@ -26,18 +26,24 @@ function News() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const getStories = async (ids: number[]) => {
-    const storyPromices = ids
-      .slice(0, 100)
-      .map((id) => dispatch(getStoryById(id)).unwrap());
-    await Promise.all(storyPromices).then((res) =>
-      dispatch(setNewStories(res))
-    );
+    try {
+      const storyPromices = ids
+        .slice(0, 100)
+        .map((id) => dispatch(getStoryById(id)).unwrap());
+      await Promise.all(storyPromices).then((res) =>
+        dispatch(setNewStories(res))
+      );
+    } catch (error) {
+      setHasError(true);
+    }
   };
 
   const showAllNews = async () => {
     if (isLoading) return;
+    setHasError(false);
     try {
       setIsLoading(true);
       const ids = await dispatch(
@@ -45,7 +51,7 @@ function News() {
       ).unwrap();
       await getStories(ids);
     } catch (error) {
-      // console.log(error);
+      setHasError(true);
     } finally {
       setIsLoading(false);
     }
@@ -78,7 +84,7 @@ function News() {
           {isLoading ? (
             <NewsSkeleton />
           ) : news.length === 0 && !isLoading ? (
-            <NewsPlaceholder />
+            <NewsPlaceholder hasError={hasError} />
           ) : (
             news.map((item) => <NewsItem key={item.id} item={item} />)
           )}

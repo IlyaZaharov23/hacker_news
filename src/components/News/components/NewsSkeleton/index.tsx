@@ -6,7 +6,7 @@ import { styles } from "./styles";
 
 export const NewsSkeleton = () => {
   return (
-    <Box sx={styles.commonWrapper} data-testid={TEST_ID.NEWS_SKELETON}>
+    <Box sx={styles.commonWrapper} data-testid={TEST_ID.NEWS_PAGE.NEWS_SKELETON}>
       <Box sx={styles.skeletonItemWrapper}>
         <Skeleton height={24} width="100%" />
         <CustomDivider position={DIVIDER_TYPE.HORIZONTAL} />
