@@ -4,6 +4,12 @@ export const TEST_ID = {
     GO_TO_NEWS_BUTTON: "go-to-news-button",
     APP_LOGO: "app-logo",
     APP_TITLE: "app-title",
+    SWITCHER_BUTTON: "switcher-button",
+    ACTIONS_TITLE: "actions-title",
+    FOOTER_QUOTE_SKELETON: "footer-quote-skeleton",
+    FOOTER_QUOTE_TEXT: "footer-quote-text",
+    FOOTER_ROOT: "footer-root",
+    CUSTOM_DIVIDER: "custom-divider",
   },
   NEWS_PAGE: {
     NEWS_PAGE_ROOT: "news-page-root",

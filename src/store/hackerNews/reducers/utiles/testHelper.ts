@@ -15,7 +15,7 @@ export const generateTestCase = (
     expect(hackerNewsReducer(initialState, action(param))).toEqual(
       expectedState
     );
-    if (initialState === require("./reducers").initialState) {
+    if (initialState === require("../reducers").initialState) {
       expect(hackerNewsReducer(undefined, action(param))).toEqual(
         expectedState
       );

@@ -45,10 +45,17 @@ function StartPage() {
             color={orangePrimary}
           />
         </Box>
-        <CustomDivider position={DIVIDER_TYPE.VERTICAL} height={320} />
+        <CustomDivider
+          position={DIVIDER_TYPE.VERTICAL}
+          height={320}
+          data-testid={TEST_ID.START_PAGE.CUSTOM_DIVIDER}
+        />
         <ActionsBlock setQuote={setQuote} />
       </Box>
-      <Footer isLoading={isLoading} quote={quote} />
+      <Footer
+        isLoading={isLoading}
+        quote={quote}
+      />
     </Box>
   );
 }
