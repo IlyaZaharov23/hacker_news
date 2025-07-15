@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
+import { Header } from "components/Header";
 import { useAppSelector, useAppDispatch } from "store/hooks";
 import {
   getStoryById,
@@ -13,7 +14,6 @@ import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryTyp
 import { TEST_ID } from "constants/testIds";
 
 import { storiesTypeConfig } from "./constants/storiesTypeConfig";
-import { Header } from "../Header";
 import { NewsItem } from "./components/NewsItem";
 import { NewsSkeleton } from "./components/NewsSkeleton";
 import { NewsPlaceholder } from "./components/NewsPlaceholder";

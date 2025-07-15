@@ -10,7 +10,7 @@ import {
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { TEST_ID } from "constants/testIds";
-import { SWITCHER_BUTTON_WIDTH } from "components/StartPage/styles";
+import { SWITCHER_BUTTON_WIDTH } from "pages/StartPage/styles";
 
 import { MenuPropsType } from "./types";
 import { menuItems } from "./constants/menuConfig";

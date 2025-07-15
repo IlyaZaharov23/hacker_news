@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
-import { FooterPropsType } from "components/StartPage/types";
+import { FooterPropsType } from "pages/StartPage/types";
 import { TEST_ID } from "constants/testIds";
 
 import { QuoteSkeleton } from "../QuoteSkeleton";

@@ -9,7 +9,7 @@ import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetByI
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { TEST_ID } from "constants/testIds";
-import { StoryPageHeaderPropsType } from "components/StoryPage/types";
+import { StoryPageHeaderPropsType } from "pages/StoryPage/types";
 
 import { StoryHeaderErrorPlaceholder } from "../StoryHeaderErrorPlaceholder";
 import { HeaderSkeleton } from "../HeaderSkeleton";

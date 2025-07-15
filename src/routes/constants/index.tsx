@@ -1,8 +1,8 @@
 import { lazy } from "react";
 
-const NewsList = lazy(() => import("../../components/News"));
-const StartPage = lazy(() => import("../../components/StartPage"));
-const StoryPage = lazy(() => import("../../components/StoryPage"));
+const NewsList = lazy(() => import("../../pages/News"));
+const StartPage = lazy(() => import("../../pages/StartPage"));
+const StoryPage = lazy(() => import("../../pages/StoryPage"));
 
 const SCREEN_NAMES = {
   START_PAGE: "START_PAGE",
