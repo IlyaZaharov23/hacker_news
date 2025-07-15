@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+
+import { ActionsBlockPropsType } from "components/StartPage/types";
 import { getStoriesTypeText } from "components/StartPage/constants/getStoriesTypeText";
 import { StoriesTypeSwitcher } from "components/StoriesTypeSwitcher";
+import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TEST_ID } from "constants/testIds";
-import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
+
 import { styles } from "../../styles";
-import { ActionsBlockPropsType } from "components/StartPage/types";
 
 export const ActionsBlock: FC<ActionsBlockPropsType> = ({ setQuote }) => {
   const [switcherOpen, setSwitcherOpen] = useState<HTMLElement | null>(null);
@@ -35,10 +37,17 @@ export const ActionsBlock: FC<ActionsBlockPropsType> = ({ setQuote }) => {
   return (
     <Box sx={styles.contentWrapper}>
       <Box sx={styles.selectorWrapper}>
-        <Typography sx={styles.selectorHelper}>
+        <Typography
+          sx={styles.selectorHelper}
+          data-testid={TEST_ID.START_PAGE.ACTIONS_TITLE}
+        >
           Which news do you want to read?
         </Typography>
-        <Box sx={styles.switcherButton} onClick={openSwitcher}>
+        <Box
+          sx={styles.switcherButton}
+          onClick={openSwitcher}
+          data-testid={TEST_ID.START_PAGE.SWITCHER_BUTTON}
+        >
           <Typography sx={styles.storiesType}>{storiesShowedType}</Typography>
           {isSwitcherOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         </Box>

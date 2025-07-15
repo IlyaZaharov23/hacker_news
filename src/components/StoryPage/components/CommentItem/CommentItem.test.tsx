@@ -1,9 +1,9 @@
-import { CommentItem } from ".";
+import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 import * as hooks from "store/hooks";
 import { TEST_COMMENT_1, TEST_COMMENT_2 } from "store/hackerNews/testContants";
-import { render, screen } from "@testing-library/react";
 import { TEST_ID } from "constants/testIds";
-import userEvent from "@testing-library/user-event";
+import { CommentItem } from ".";
 
 jest.mock("store/hackerNews/actions");
 

@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TestRender } from "routes/testRender";
 import {
@@ -10,7 +11,6 @@ import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import * as actions from "store/hackerNews/actions";
 import * as hooks from "store/hooks";
 import { TEST_ID } from "constants/testIds";
-import userEvent from "@testing-library/user-event";
 
 jest.mock("store/hackerNews/actions");
 

@@ -1,7 +1,7 @@
-import { getShowedStoryType } from ".";
 import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
 import { RootState } from "store";
 import { initialState } from "store/hackerNews/reducers/reducers";
+import { getShowedStoryType } from ".";
 
 describe("getShowedStoryType test", () => {
   test("returns correct initial value type", () => {

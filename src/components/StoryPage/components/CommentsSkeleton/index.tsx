@@ -1,8 +1,8 @@
 import { Box, Skeleton } from "@mui/material";
 import { CustomDivider } from "components/CustomDivider";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
-import { styles } from "./styles";
 import { TEST_ID } from "constants/testIds";
+import { styles } from "./styles";
 
 export const CommentsSkeleton = () => {
   return (

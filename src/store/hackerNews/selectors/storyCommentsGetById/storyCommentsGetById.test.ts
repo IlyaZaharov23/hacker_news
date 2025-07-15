@@ -1,5 +1,4 @@
 import { initialState } from "store/hackerNews/reducers/reducers";
-import { storyCommentsGetById } from ".";
 import {
   TEST_COMMENT_1,
   TEST_COMMENT_2,
@@ -9,6 +8,7 @@ import {
   TEST_STORY_2,
 } from "store/hackerNews/testContants";
 import { RootState } from "store";
+import { storyCommentsGetById } from ".";
 
 describe("storyCommentsGetById test", () => {
   test("returns correct comment list", () => {

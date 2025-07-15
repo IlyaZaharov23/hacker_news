@@ -9,9 +9,9 @@ import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetByI
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { TEST_ID } from "constants/testIds";
+import { StoryPageHeaderPropsType } from "components/StoryPage/types";
 
 import { HeaderSkeleton } from "../HeaderSkeleton";
-import { StoryPageHeaderPropsType } from "components/StoryPage/types";
 import { styles } from "../../styles";
 
 export const StoryHeader: FC<StoryPageHeaderPropsType> = ({ isLoading }) => {

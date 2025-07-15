@@ -10,9 +10,9 @@ import { TEST_ID } from "constants/testIds";
 import { orangePrimary } from "constants/colors";
 
 import { Footer } from "./components/Footer";
+import { ActionsBlock } from "./components/ActionsBlock";
 import { QuoteType } from "./types";
 import { styles } from "./styles";
-import { ActionsBlock } from "./components/ActionsBlock";
 
 function StartPage() {
   const dispatch = useAppDispatch();
@@ -45,10 +45,17 @@ function StartPage() {
             color={orangePrimary}
           />
         </Box>
-        <CustomDivider position={DIVIDER_TYPE.VERTICAL} height={320} />
+        <CustomDivider
+          position={DIVIDER_TYPE.VERTICAL}
+          height={320}
+          data-testid={TEST_ID.START_PAGE.CUSTOM_DIVIDER}
+        />
         <ActionsBlock setQuote={setQuote} />
       </Box>
-      <Footer isLoading={isLoading} quote={quote} />
+      <Footer
+        isLoading={isLoading}
+        quote={quote}
+      />
     </Box>
   );
 }

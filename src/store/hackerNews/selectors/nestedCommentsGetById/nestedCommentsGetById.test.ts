@@ -1,5 +1,4 @@
 import { initialState } from "store/hackerNews/reducers/reducers";
-import { nestedCommentsGetById } from ".";
 import { RootState } from "store";
 import {
   TEST_COMMENT_1,
@@ -7,6 +6,7 @@ import {
   TEST_COMMENT_3,
   TEST_COMMENT_4,
 } from "store/hackerNews/testContants";
+import { nestedCommentsGetById } from ".";
 
 describe("nestedCommentsGetById test", () => {
   test("returns correct nested comments list", () => {

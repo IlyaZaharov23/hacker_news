@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { StoryHeader } from ".";
 import * as hooks from "store/hooks";
 import { TEST_STORY_1 } from "store/hackerNews/testContants";
 import { TEST_ID } from "constants/testIds";
+import { StoryHeader } from ".";
 
 describe("Story Header component test", () => {
   beforeAll(() => {
