@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Menu, MenuItem, Typography } from "@mui/material";
+
 import {
   clearActiveStories,
   setShowedStoryType,
@@ -10,6 +11,7 @@ import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryTyp
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { TEST_ID } from "constants/testIds";
 import { SWITCHER_BUTTON_WIDTH } from "components/StartPage/styles";
+
 import { MenuPropsType } from "./types";
 import { menuItems } from "./constants/menuConfig";
 import { styles } from "./styles";

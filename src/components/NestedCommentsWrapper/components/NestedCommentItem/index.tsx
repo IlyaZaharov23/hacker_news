@@ -2,14 +2,14 @@ import { FC } from "react";
 import { Box, Typography } from "@mui/material";
 
 import { CustomDivider } from "components/CustomDivider";
+import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
-
+import { TEST_ID } from "constants/testIds";
 import { WrapperPropsType } from "components/NestedCommentsWrapper/types";
+
 import { DeletedNestedComment } from "../DeletedNestedComment";
 import { styles } from "./styles";
-import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
-import { TEST_ID } from "constants/testIds";
 
 export const NestedCommentItem: FC<WrapperPropsType> = ({ comment }) => {
   if (comment.deleted) return <DeletedNestedComment />;

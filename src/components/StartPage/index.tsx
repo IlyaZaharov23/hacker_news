@@ -10,9 +10,9 @@ import { TEST_ID } from "constants/testIds";
 import { orangePrimary } from "constants/colors";
 
 import { Footer } from "./components/Footer";
+import { ActionsBlock } from "./components/ActionsBlock";
 import { QuoteType } from "./types";
 import { styles } from "./styles";
-import { ActionsBlock } from "./components/ActionsBlock";
 
 function StartPage() {
   const dispatch = useAppDispatch();

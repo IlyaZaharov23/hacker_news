@@ -5,10 +5,10 @@ import { CustomDivider } from "components/CustomDivider";
 import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
-
-import { CommentItemPropsType } from "components/StoryPage/types";
-import { styles } from "./styles";
 import { TEST_ID } from "constants/testIds";
+import { CommentItemPropsType } from "components/StoryPage/types";
+
+import { styles } from "./styles";
 
 export const CommentItem: FC<CommentItemPropsType> = ({ comment }) => {
   return (

@@ -1,7 +1,7 @@
 import { RootState } from "store";
-import { newStoriesGet } from ".";
 import { TEST_STORY_1, TEST_STORY_2 } from "store/hackerNews/testContants";
 import { initialState } from "store/hackerNews/reducers/reducers";
+import { newStoriesGet } from ".";
 
 describe("newStoriesGet test", () => {
   test("returns stories list", () => {

@@ -1,6 +1,6 @@
 import { Box, Skeleton } from "@mui/material";
-import { styles } from "./styles";
 import { TEST_ID } from "constants/testIds";
+import { styles } from "./styles";
 
 export const QuoteSkeleton = () => {
   return (

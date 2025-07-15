@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
+
 import { useAppSelector, useAppDispatch } from "store/hooks";
 import { activeStoriesGet } from "store/hackerNews/selectors/activeStoriesGet";
 import {
@@ -11,12 +12,13 @@ import {
 } from "store/hackerNews/actions";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { TEST_ID } from "constants/testIds";
+import { StoryType } from "types/commonTypes";
+
 import { Comments } from "./components/Comments";
 import { StoryHeader } from "./components/StoryHeader";
 import { Header } from "../Header";
-import { styles } from "./styles";
 import { getStoriesIds } from "./utiles/getStoriesIds";
-import { StoryType } from "types/commonTypes";
+import { styles } from "./styles";
 
 function StoryPage() {
   const params = useParams();

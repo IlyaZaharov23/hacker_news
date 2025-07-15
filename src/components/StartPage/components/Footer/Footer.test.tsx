@@ -1,6 +1,6 @@
+import { render, screen } from "@testing-library/react";
 import { TEST_ID } from "constants/testIds";
 import { Footer } from ".";
-import { render, screen } from "@testing-library/react";
 
 describe("Start page footer test", () => {
   test("Skeleton render", async () => {

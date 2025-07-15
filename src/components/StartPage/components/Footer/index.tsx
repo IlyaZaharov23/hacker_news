@@ -1,9 +1,11 @@
 import { FC } from "react";
 import { Box, Typography } from "@mui/material";
-import { QuoteSkeleton } from "../QuoteSkeleton";
+
 import { FooterPropsType } from "components/StartPage/types";
-import { styles } from "../../styles";
 import { TEST_ID } from "constants/testIds";
+
+import { QuoteSkeleton } from "../QuoteSkeleton";
+import { styles } from "../../styles";
 
 export const Footer: FC<FooterPropsType> = ({ isLoading, quote }) => {
   return (

@@ -8,9 +8,9 @@ import { TEST_STORY_1, TEST_STORY_2 } from "store/hackerNews/testContants";
 import { newStoriesGet } from "store/hackerNews/selectors/newStoriesGet";
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { activeStoryGetById } from "store/hackerNews/selectors/activeStoryGetById";
+import { activeStoriesGet } from "store/hackerNews/selectors/activeStoriesGet";
 import { TEST_ID } from "constants/testIds";
 import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
-import { activeStoriesGet } from "store/hackerNews/selectors/activeStoriesGet";
 
 jest.mock("store/hackerNews/actions");
 

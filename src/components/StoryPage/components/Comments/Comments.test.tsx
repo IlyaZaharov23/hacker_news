@@ -1,13 +1,13 @@
+import { render, screen } from "@testing-library/react";
 import {
   TEST_COMMENT_1,
   TEST_COMMENT_2,
   TEST_STORY_1,
 } from "store/hackerNews/testContants";
-import { Comments } from ".";
-import { render, screen } from "@testing-library/react";
 import { TEST_ID } from "constants/testIds";
 import * as hooks from "store/hooks";
 import * as actions from "store/hackerNews/actions";
+import { Comments } from ".";
 
 jest.mock("store/hackerNews/actions");
 

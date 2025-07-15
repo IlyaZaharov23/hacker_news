@@ -1,12 +1,4 @@
 import {
-  TEST_COMMENT_1,
-  TEST_COMMENT_2,
-  TEST_COMMENT_3,
-  TEST_COMMENT_4,
-  TEST_STORY_1,
-  TEST_STORY_2,
-} from "../testContants";
-import {
   setNewStories,
   addActiveStory,
   clearActiveStories,
@@ -17,9 +9,17 @@ import {
   clearAllNestedComments,
   setShowedStoryType,
 } from "store/hackerNews/actions";
+import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
+import {
+  TEST_COMMENT_1,
+  TEST_COMMENT_2,
+  TEST_COMMENT_3,
+  TEST_COMMENT_4,
+  TEST_STORY_1,
+  TEST_STORY_2,
+} from "../testContants";
 import { initialState } from "./reducers";
 import { generateTestCase } from "./utiles/testHelper";
-import { STORIES_SHOWED_TYPE } from "constants/storiesTypes";
 
 describe("HACKER_NEWS_REDUCER_TEST", () => {
   generateTestCase(

@@ -1,5 +1,5 @@
-import { UrlUtil } from "./UrlUtil";
 import { SCREEN_ROUTES } from "routes/constants";
+import { UrlUtil } from "./UrlUtil";
 
 describe("URL_UTIL_GENERATE_ROUTE_TEST", () => {
   test("correct ID paste", () => {
@@ -41,5 +41,11 @@ describe("URL_UTIL_GET_STORY_ID_TEST", () => {
   });
   test("not a number in string param", () => {
     expect(UrlUtil.getIdFromUrl("abs")).toBe(NaN);
+  });
+});
+
+describe("URL_UTIL_GET_TEST_URL", () => {
+  test("returns correct value", () => {
+    expect(UrlUtil.getTestUrl(SCREEN_ROUTES.NEWS_ITEM, 777)).toBe("/story/777");
   });
 });

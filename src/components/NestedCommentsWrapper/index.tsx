@@ -3,6 +3,7 @@ import { useAppDispatch } from "store/hooks";
 import { Box } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+
 import { CustomButton } from "components/CustomButton";
 import { ProgressLoader } from "components/ProgressLoader";
 import {
@@ -11,6 +12,7 @@ import {
   removeNestedCommentsById,
 } from "store/hackerNews/actions";
 import { TEST_ID } from "constants/testIds";
+
 import { WrapperPropsType } from "./types";
 import { NestedComments } from "./components/NestedComments";
 import { styles } from "./styles";

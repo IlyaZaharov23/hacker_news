@@ -18,7 +18,6 @@ export class UrlUtil {
   static getIdFromUrl(params: string | undefined) {
     return Number(params);
   }
-  //TODO: add to tests
   static getTestUrl(route: string, id: number) {
     return `/${route.split("/")[1]}/${id}`;
   }

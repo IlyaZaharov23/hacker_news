@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+
+import { ActionsBlockPropsType } from "components/StartPage/types";
 import { getStoriesTypeText } from "components/StartPage/constants/getStoriesTypeText";
 import { StoriesTypeSwitcher } from "components/StoriesTypeSwitcher";
+import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { SCREEN_ROUTES } from "routes/constants";
 import { TEST_ID } from "constants/testIds";
-import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
+
 import { styles } from "../../styles";
-import { ActionsBlockPropsType } from "components/StartPage/types";
 
 export const ActionsBlock: FC<ActionsBlockPropsType> = ({ setQuote }) => {
   const [switcherOpen, setSwitcherOpen] = useState<HTMLElement | null>(null);
