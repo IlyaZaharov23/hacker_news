@@ -5,8 +5,8 @@ import { Box, Button, Typography } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-import { ActionsBlockPropsType } from "components/StartPage/types";
-import { getStoriesTypeText } from "components/StartPage/constants/getStoriesTypeText";
+import { ActionsBlockPropsType } from "pages/StartPage/types";
+import { getStoriesTypeText } from "pages/StartPage/constants/getStoriesTypeText";
 import { StoriesTypeSwitcher } from "components/StoriesTypeSwitcher";
 import { getShowedStoryType } from "store/hackerNews/selectors/getShowedStoryType";
 import { SCREEN_ROUTES } from "routes/constants";

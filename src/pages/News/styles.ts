@@ -1,5 +1,5 @@
 import { lightBrown, white } from "constants/colors";
-import { HEADER_HEIGHT } from "../Header/styles";
+import { HEADER_HEIGHT } from "components/Header/styles";
 
 export const styles = {
   mainWrapper: {

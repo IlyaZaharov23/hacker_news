@@ -7,7 +7,7 @@ import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { UrlUtil } from "utiles/UrlUtil/UrlUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { TEST_ID } from "constants/testIds";
-import { NewsItemPropsType } from "components/News/types";
+import { NewsItemPropsType } from "pages/News/types";
 import { styles } from "./styles";
 
 export const NewsItem: FC<NewsItemPropsType> = ({ item }) => {

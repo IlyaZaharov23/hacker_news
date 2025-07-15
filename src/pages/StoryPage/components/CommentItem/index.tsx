@@ -6,7 +6,7 @@ import { DateUtil } from "utiles/DateUtil/DateUtil";
 import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { NestedCommentsWrapper } from "components/NestedCommentsWrapper";
 import { TEST_ID } from "constants/testIds";
-import { CommentItemPropsType } from "components/StoryPage/types";
+import { CommentItemPropsType } from "pages/StoryPage/types";
 
 import { styles } from "./styles";
 
