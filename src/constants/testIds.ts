@@ -14,6 +14,9 @@ export const TEST_ID = {
   NEWS_PAGE: {
     NEWS_PAGE_ROOT: "news-page-root",
     NEWS_ITEM_IN_LIST: (id: number | undefined) => `news-list-in-list-${id}`,
+    NEWS_SKELETON: "news-skeleton",
+    NEWS_PLACEHOLDER: "news-placeholder",
+    NEWS_ERROR_PLACEHOLDER: "news-error-placeholder",
   },
   STORY_PAGE: {
     STORY_PAGE_ROOT: (id: number | undefined) => `story-page-root-${id}`,
@@ -26,18 +29,24 @@ export const TEST_ID = {
       `story-header-published-${id}`,
     STORY_HEADER_REDIRECT_TO_STORY: (id: number | undefined) =>
       `story-header-redirect-to-story-${id}`,
+    STORY_HEADER_ERROR_PLACEHOLDER: "story-header-error-placeholder",
   },
   COMMENTS: {
     COMMENTS_ROOT: (id: number | undefined) => `comments-root-${id}`,
     COMMENT_ITEM: (id: number | undefined) => `comment-item-${id}`,
-    SHOW_NESTED_COMMENS_BUTTON: (id: number | undefined) =>
+    SHOW_NESTED_COMMENTS_BUTTON: (id: number | undefined) =>
       `show-nested-comments-button-${id}`,
     HIDE_NESTED_COMMENTS_BUTTON: (id: number | undefined) =>
       `hide-nested-comments-button-${id}`,
+    RELOAD_NESTED_COMMENTS_BUTTON: (id: number | undefined) =>
+      `reload-nested-comments-button-${id}`,
     NESTED_COMMENTS_ROOT: (id: number | undefined) =>
       `nested-comments-root-${id}`,
+    NESTED_COMMENTS_ERROR_PLACEHOLDER: (id: number | undefined) =>
+      `nested-comments-error-placeholder-${id}`,
     COMMENTS_SKELETON: "comments-skeleton",
     COMMENTS_PLACEHOLDER: "comments-placeholder",
+    COMMENTS_ERROR_PLACEHOLDER: "comments-error-placeholder",
   },
   HEADER: {
     HEADER_ROOT: "header-root",
@@ -46,8 +55,6 @@ export const TEST_ID = {
     MENU_BUTTON: "menu-button",
     APP_LOGO: "app-logo",
   },
-  NEWS_SKELETON: "news-skeleton",
-  NEWS_PLACEHOLDER: "news-placeholder",
   NEWS_TYPE_SWITCHER: {
     SWITCHER_ROOT: "switcher-root",
     SWITCHER_ITEM: (type: string) => `switcher-item-${type}`,

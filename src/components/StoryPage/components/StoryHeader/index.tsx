@@ -11,10 +11,14 @@ import { DIVIDER_TYPE } from "constants/dividerTypes";
 import { TEST_ID } from "constants/testIds";
 import { StoryPageHeaderPropsType } from "components/StoryPage/types";
 
+import { StoryHeaderErrorPlaceholder } from "../StoryHeaderErrorPlaceholder";
 import { HeaderSkeleton } from "../HeaderSkeleton";
 import { styles } from "../../styles";
 
-export const StoryHeader: FC<StoryPageHeaderPropsType> = ({ isLoading }) => {
+export const StoryHeader: FC<StoryPageHeaderPropsType> = ({
+  isLoading,
+  hasError,
+}) => {
   const params = useParams();
 
   const activeStory = useAppSelector((state) =>
@@ -31,6 +35,8 @@ export const StoryHeader: FC<StoryPageHeaderPropsType> = ({ isLoading }) => {
     >
       {isLoading ? (
         <HeaderSkeleton />
+      ) : hasError ? (
+        <StoryHeaderErrorPlaceholder />
       ) : (
         <>
           <Box sx={styles.topWrapper}>

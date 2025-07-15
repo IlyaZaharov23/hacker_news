@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { useAppDispatch } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 import { Box } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
@@ -11,43 +11,38 @@ import {
   addNestedCommentsById,
   removeNestedCommentsById,
 } from "store/hackerNews/actions";
+import { getNestedComments } from "store/hackerNews/selectors/getNestedComments";
 import { TEST_ID } from "constants/testIds";
 
+import { NestedCommentsErrorPlaceholder } from "./components/NestedCommentsErrorPlaceholder";
 import { WrapperPropsType } from "./types";
 import { NestedComments } from "./components/NestedComments";
 import { styles } from "./styles";
 
 export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
   const dispatch = useAppDispatch();
+  const nestedComments = useAppSelector(getNestedComments);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [nestedCommentsIds, setNestedCommentsIds] = useState<number[]>([]);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const isNestedHidden = (commentId: number) => {
-    return !nestedCommentsIds.includes(commentId);
-  };
-
-  const addCommentIdToNestedList = (id: number) => {
-    setNestedCommentsIds((prev) => [...prev, id]);
+    return !nestedComments[commentId] || nestedComments[commentId].length === 0;
   };
 
   const deleteCommentIdFromNestedList = (id: number) => {
-    const newNestedIdList = nestedCommentsIds.filter(
-      (commentId) => commentId !== id
-    );
-    setNestedCommentsIds(newNestedIdList);
     dispatch(removeNestedCommentsById(id));
   };
 
   const loadNestedComments = async (ids: number[]) => {
     try {
+      setHasError(false);
       setIsLoading(true);
       const idsPromise = ids.map((id) => dispatch(getCommentById(id)).unwrap());
       await Promise.all(idsPromise).then((res) => {
         dispatch(addNestedCommentsById({ id: comment.id, comments: res }));
       });
-      addCommentIdToNestedList(comment.id);
     } catch (error) {
-      console.log(error);
+      setHasError(true);
     } finally {
       setIsLoading(false);
     }
@@ -60,6 +55,12 @@ export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
             <Box ml="4rem">
               <ProgressLoader size={32} />
             </Box>
+          ) : hasError ? (
+            <NestedCommentsErrorPlaceholder
+              loadNestedComments={loadNestedComments}
+              kids={comment.kids}
+              commentId={comment.id}
+            />
           ) : (
             <Box
               sx={{
@@ -86,7 +87,7 @@ export const NestedCommentsWrapper: FC<WrapperPropsType> = ({ comment }) => {
                 <CustomButton
                   startIcon={<ArrowDownwardIcon />}
                   onClick={() => loadNestedComments(comment.kids ?? [])}
-                  data-testid={TEST_ID.COMMENTS.SHOW_NESTED_COMMENS_BUTTON(
+                  data-testid={TEST_ID.COMMENTS.SHOW_NESTED_COMMENTS_BUTTON(
                     comment.id
                   )}
                 >
